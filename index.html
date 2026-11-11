@@ -767,6 +767,26 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
       .x-airy .cards > div > * + * { margin-top: 14px; }
       .x-airy .cards h3 { margin-bottom: 0; }
       .x-airy .callout__lead { line-height: 1.55; }
+      .x-airy .x-grid { gap: 16px; }
+      .x-airy .x-grid > div {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 28px;
+        border: 1px solid var(--stroke-secondary);
+        border-radius: 8px;
+      }
+      .x-airy .x-grid > div > * { margin: 0; }
+      .x-airy .x-grid > div > .x-tags { margin-top: auto; padding-top: 6px; }
+      .x-airy .x-grid p { max-width: 62ch; }
+      .x-grid--t { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto 1fr 1fr; }
+      .x-grid--t > :first-child { grid-column: 1 / -1; }
+      .x-grid--stack { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; }
+      @media (max-width: 599px) {
+        .x-grid--t { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+        .x-grid--stack { grid-auto-rows: auto; }
+        .x-airy .x-grid > div { padding: 20px; }
+      }
       .x-intro {
         display: grid;
         gap: 24px;
@@ -857,7 +877,7 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
             <p class="head__eyebrow">Skills</p>
             <h2>From governance policy down to the directory.</h2>
           </div>
-          <div class="cards">
+          <div class="cards x-grid x-grid--t">
             <div>
               <h3>Identity governance</h3>
               <ul class="x-tags">
@@ -921,7 +941,7 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
             <p class="head__eyebrow">Selected work</p>
             <h2>Tools that turn access controls into evidence.</h2>
           </div>
-          <div class="cards">
+          <div class="cards x-grid x-grid--stack">
             <div>
               <p class="x-meta">2026–present · Self-directed</p>
               <h3>IAM Control Evaluation Framework</h3>
