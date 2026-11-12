@@ -10,6 +10,12 @@ export const SITE = {
     { label: "GitHub", text: "GitHub", href: "https://github.com/whatheheckisthis" },
     { label: "LinkedIn", text: "LinkedIn", href: "https://www.linkedin.com/in/its-dhruv-setty" },
   ],
+  email: "itsdhruvsetty@gmail.com",
+  photo: { src: "/dhruv.webp", alt: "Dhruv Setty", width: 400, height: 400 },
+  // Dropbox shared link to the resume (opens Dropbox preview). Empty hides the link.
+  resume: "",
+  // Buy Me a Coffee or Ko-fi page. Empty hides the button.
+  coffee: "",
   // Existing MkDocs pages, served from the same site. Plain links, not router links.
   docs: [
     { text: "Overview", href: "/overview/" },

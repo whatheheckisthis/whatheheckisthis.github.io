@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import ContactForm from "../components/ContactForm";
 import { FEATURED, SITE } from "../content/site";
 import { STORY } from "../content/story";
 
@@ -15,17 +16,22 @@ export default function Home() {
       <div className="home__grid">
         <section id="contact" aria-labelledby="contact-h">
           <h2 id="contact-h" className="label">Get in touch</h2>
+          <p className="contact__email">
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          </p>
           <ul className="stack">
-            {SITE.contact.map((c) => (
+            {SITE.contact.filter((c) => c.label !== "Email").map((c) => (
               <li key={c.label}>
                 <a href={c.href}>{c.text}</a>
               </li>
             ))}
           </ul>
+          <ContactForm />
         </section>
 
         <section id="about" aria-labelledby="story-h" className="home__story">
           <h2 id="story-h" className="label">About</h2>
+          <img className="about__photo" src={SITE.photo.src} alt={SITE.photo.alt} width={SITE.photo.width} height={SITE.photo.height} loading="lazy" decoding="async" />
           {story ? (
             story.split("\n\n").map((para) => <p key={para.slice(0, 24)}>{para}</p>)
           ) : (
@@ -34,6 +40,11 @@ export default function Home() {
               <code>landing/src/content/story.ts</code>.
             </p>
           )}
+          {SITE.resume ? (
+            <p className="about__resume">
+              <a href={SITE.resume} target="_blank" rel="noopener">View my resume</a>
+            </p>
+          ) : null}
         </section>
 
         <section aria-labelledby="featured-h">
