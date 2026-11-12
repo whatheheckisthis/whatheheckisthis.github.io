@@ -487,3 +487,10 @@ html {
 .site-footer__links { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.25rem; }
 .site-footer__links a { color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+
+.cards--projects { margin-top: 1.25rem; }
+@media (min-width: 760px) { .cards--projects { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cards--projects .card { display: flex; flex-direction: column; gap: 0.6rem; }
+.cards--projects .card__title { margin: 0; }
+.cards--projects .actions { margin-top: auto; padding-top: 0.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+.card__tag { margin: 0; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
