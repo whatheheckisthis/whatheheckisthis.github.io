@@ -16,7 +16,7 @@ export const SITE = {
   // Dropbox shared link to the resume (opens Dropbox preview). Empty hides the link.
   resume: "",
   // Buy Me a Coffee or Ko-fi page. Empty hides the button.
-  coffee: "",
+  coffee: "https://buymeacoffee.com/dhruvsetty",
   // Existing MkDocs pages, served from the same site. Plain links, not router links.
   docs: [
     { text: "Overview", href: "/overview/" },
