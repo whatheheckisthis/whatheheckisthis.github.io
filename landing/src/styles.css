@@ -421,7 +421,6 @@ html {
   border: 1px solid #E5E5E2;
   margin-bottom: 1rem;
 }
-.about__resume { margin-top: 1rem; font-weight: 500; }
 .contact__email { font-weight: 500; margin-bottom: 0.75rem; word-break: break-all; }
 .contact-form { display: grid; gap: 0.4rem; margin-top: 1.25rem; max-width: 28rem; }
 .contact-form label { font-size: 0.875rem; color: #444; margin-top: 0.4rem; }
