@@ -55,7 +55,7 @@ jobs:
       # 3. Merge into one artifact. Fail if any landing file would overwrite a docs file.
       - name: Merge landing into docs output
         run: |
-          collisions=$(cd landing/dist && find . -type f | while read -r f; do [ -e "../../site/$f" ] && echo "$f"; done)
+          collisions=$(cd landing/dist && find . -type f | while read -r f; do if [ -e "../../site/$f" ]; then echo "$f"; fi; done)
           if [ -n "$collisions" ]; then
             echo "::error::Landing build would overwrite docs files:"; echo "$collisions"; exit 1
           fi
