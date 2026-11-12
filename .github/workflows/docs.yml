@@ -6,6 +6,14 @@ on:
     paths:
       - "docs/**"
       - "mkdocs.yml"
+      - "landing/**"
+      - ".github/workflows/docs.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "landing/**"
+      - ".github/workflows/docs.yml"
 
 permissions:
   contents: read
@@ -13,7 +21,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -24,14 +32,49 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: landing/package-lock.json
       - run: pip install -r requirements.txt
       - id: pages
+        if: github.event_name == 'push'
         uses: actions/configure-pages@v5
+
+      # 1. Docs, exactly as before.
       - run: mkdocs build --strict --site-dir site
-      - uses: actions/upload-pages-artifact@v3
+
+      # 2. Landing page and blog (prerendered static HTML).
+      - name: Build landing
+        working-directory: landing
+        run: |
+          npm ci
+          npm run build
+
+      # 3. Merge into one artifact. Fail if any landing file would overwrite a docs file.
+      - name: Merge landing into docs output
+        run: |
+          collisions=$(cd landing/dist && find . -type f | while read -r f; do if [ -e "../../site/$f" ]; then echo "$f"; fi; done)
+          if [ -n "$collisions" ]; then
+            echo "::error::Landing build would overwrite docs files:"; echo "$collisions"; exit 1
+          fi
+          cp -R landing/dist/. site/
+          test -f site/404.html && test -f site/architecture/index.html && test -f site/overview/index.html && test -f site/index.html
+
+      # 4. Pull requests only: Lighthouse on the landing page and blog (fails below 95).
+      - name: Lighthouse
+        if: github.event_name == 'pull_request'
+        working-directory: landing
+        run: npx --yes @lhci/cli@0.14.x autorun
+
+      - if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
   deploy:
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     environment:

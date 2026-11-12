@@ -6,7 +6,7 @@ theme:
 plugins:
   - search
 nav:
-  - Overview: index.md
+  - Overview: overview.md
   - Architecture & Auth: architecture.md
   - CLI & Schema Reference: reference.md
   - Deployment & Hardening: deployment.md
