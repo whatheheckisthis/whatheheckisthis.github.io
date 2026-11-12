@@ -14,7 +14,7 @@ export const SITE = {
   email: "itsdhruvsetty@gmail.com",
   photo: { src: "/dhruv.webp", alt: "Dhruv Setty", width: 400, height: 400 },
   // Dropbox shared link to the resume (opens Dropbox preview). Empty hides the link.
-  resume: "",
+  resume: "https://www.dropbox.com/scl/fi/9sueshghjttlbs9xoei3j/Dhruv_Setty_Resume.pdf?rlkey=wvw71mzpaxlpa36zf4mhr5pu9&st=l9ptoclv&dl=0",
   // Buy Me a Coffee or Ko-fi page. Empty hides the button.
   coffee: "https://buymeacoffee.com/dhruvsetty",
   // Existing MkDocs pages, served from the same site. Plain links, not router links.
