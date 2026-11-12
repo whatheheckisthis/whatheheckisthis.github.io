@@ -30,9 +30,6 @@ export default function Home() {
             <img className="about__photo" src={SITE.photo.src} alt="Portrait of Dhruv Setty" width={SITE.photo.width} height={SITE.photo.height} loading="lazy" decoding="async" />
             <div className="about__story">
               {story ? story.split("\n\n").map((para) => <p key={para.slice(0, 24)}>{para}</p>) : null}
-              {SITE.resume ? (
-                <p className="about__resume"><a href={SITE.resume} target="_blank" rel="noopener">View my resume</a></p>
-              ) : null}
             </div>
           </div>
         </section>

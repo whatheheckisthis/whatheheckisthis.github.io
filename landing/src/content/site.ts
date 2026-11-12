@@ -46,7 +46,7 @@ export const FEATURED = {
   name: "IĀTŌ",
   fullName: "Intent-to-Auditable-Trust-Object Index",
   repo: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index",
-  readmeText: "Read the README",
+  readmeText: "Learn More",
   status: "Design stage. v1.0.0 scope is the Entra ID collector.",
   readme: "https://github.com/whatheheckisthis/whatheheckisthis/blob/main/README.md",
 } as const;
@@ -59,7 +59,7 @@ export const PROJECTS = [
     summary:
       "A specification review and Lean 4 formalisation of an EL2 hypervisor model for Arm Neoverse servers (Azure Cobalt): Stage-2 memory isolation, EL2 configuration and the KVM vCPU lifecycle. Each finding is classed as a correction, a precision defect or a verification gap.",
     links: [
-      { text: "Read the study", href: "https://www.dropbox.com/scl/fi/nfrnwf5lten7b74ud1fbn/A64-CBLT-STUDY-001-eca7fe16806a.pdf?rlkey=rl6pegel190x12yx8mhkpbn7s&st=kjv0iqll&dl=0" },
+      { text: "Learn More", href: "https://www.dropbox.com/scl/fi/nfrnwf5lten7b74ud1fbn/A64-CBLT-STUDY-001-eca7fe16806a.pdf?rlkey=rl6pegel190x12yx8mhkpbn7s&st=kjv0iqll&dl=0" },
       { text: "View the Lean proofs", href: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-v7" },
     ],
   },
@@ -68,6 +68,6 @@ export const PROJECTS = [
     tag: "HPC",
     summary:
       "A technical specification and verification model for a low-latency FPGA-to-GPU data path on virtualised Arm Neoverse hosts, using PCIe peer-to-peer DMA, QEMU/KVM/VFIO device isolation and AF_XDP control. April 2024 to January 2025.",
-    links: [{ text: "Read the specification", href: "https://www.dropbox.com/scl/fi/lrntb1t05v04yb1wz4ei8/CBLT-2-1cf710990566.pdf?rlkey=rp2c40yxcu7wo0m9yqnl13ckc&st=1x4jym61&dl=0" }],
+    links: [{ text: "Learn More", href: "https://www.dropbox.com/scl/fi/lrntb1t05v04yb1wz4ei8/CBLT-2-1cf710990566.pdf?rlkey=rp2c40yxcu7wo0m9yqnl13ckc&st=1x4jym61&dl=0" }],
   },
 ] as const;
