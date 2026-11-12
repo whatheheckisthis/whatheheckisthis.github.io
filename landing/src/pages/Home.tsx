@@ -52,9 +52,8 @@ export default function Home() {
         <section id="work" className="section" aria-labelledby="work-h">
           <h2 id="work-h" className="section__title">Selected work</h2>
           <article className="card card--feature">
-            <p className="card__status">{FEATURED.status}</p>
             <h3 className="card__title card__title--lg">
-              {FEATURED.name} <span className="muted">{FEATURED.fullName}</span>
+              {FEATURED.name}
             </h3>
             <p>{FEATURED.summary}</p>
             <div className="actions">
