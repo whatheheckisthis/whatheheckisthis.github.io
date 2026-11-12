@@ -37,3 +37,10 @@
 .md-tabs__link { opacity: 1; }
 .md-tabs__link--active, .md-nav__link--active { color: rgb(0, 0, 0); font-weight: 600; }
 .md-tabs__link:hover, .md-nav__link:hover { color: rgb(85, 85, 85); }
+
+/* Header shows name + search only: no tabs, no page-title topic, no nav drawer */
+.md-tabs { display: none; }
+.md-header__title .md-header__topic + .md-header__topic { display: none; }
+.md-header__title--active .md-header__topic:first-child { opacity: 1; transform: none; z-index: 1; pointer-events: auto; }
+.md-sidebar--primary { display: none; }
+label.md-header__button[for="__drawer"] { display: none; }

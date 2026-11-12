@@ -12,7 +12,6 @@ theme:
     primary: black
     accent: black
   features:
-    - navigation.tabs
     - navigation.top
     - navigation.footer
     - content.code.copy
