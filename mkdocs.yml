@@ -15,8 +15,6 @@ theme:
     - navigation.top
     - navigation.footer
     - content.code.copy
-  icon:
-    logo: material/shield-account-outline
 extra_css:
   - stylesheets/extra.css
 extra:

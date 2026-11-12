@@ -48,3 +48,8 @@ label.md-header__button[for="__drawer"] { display: none; }
 /* Header: search only, no site name, no logo icon */
 .md-header__title, .md-header__button.md-logo { display: none; }
 .md-header__inner { justify-content: flex-end; }
+
+/* Remove the name/logo strip everywhere (header, drawer, any width) */
+.md-header__title, .md-logo, .md-header__button.md-logo,
+.md-nav--primary > .md-nav__title, .md-sidebar--primary,
+label.md-header__button[for="__drawer"] { display: none !important; }
