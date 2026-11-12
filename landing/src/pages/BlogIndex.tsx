@@ -8,6 +8,7 @@ export default function BlogIndex() {
       <Header />
       <main className="prose fade-in">
         <h1>Blog</h1>
+        <p className="lede">Notes on identity, access and assurance.</p>
         {POSTS.length === 0 ? (
           <p>No posts yet.</p>
         ) : (

@@ -10,10 +10,11 @@ export default function Home() {
     <main className="home fade-in">
       <h1 className="home__name">{SITE.name}</h1>
       <p className="home__positioning">{SITE.positioning}</p>
+      <p className="home__focus">{SITE.focus}</p>
 
       <div className="home__grid">
         <section id="contact" aria-labelledby="contact-h">
-          <h2 id="contact-h" className="label">Contact</h2>
+          <h2 id="contact-h" className="label">Get in touch</h2>
           <ul className="stack">
             {SITE.contact.map((c) => (
               <li key={c.label}>
@@ -42,6 +43,7 @@ export default function Home() {
               {FEATURED.name} <span className="muted">({FEATURED.fullName})</span>
             </a>
           </p>
+          <p className="featured__status">{FEATURED.status}</p>
           <p className="featured__summary">
             <a href={FEATURED.readme}>{FEATURED.readmeText}</a>
           </p>

@@ -135,6 +135,23 @@ pre {
   font-size: var(--step-1);
 }
 
+.home__focus {
+  margin: 0.5rem 0 0;
+  max-width: 52ch;
+  color: var(--muted);
+}
+
+.featured__status {
+  margin: 0 0 0.4rem !important;
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.lede {
+  margin: -1.25rem 0 2.25rem;
+  color: var(--muted);
+}
+
 .home__grid {
   margin-top: clamp(2.5rem, 7vh, 4.5rem);
   padding-top: 1.5rem;
