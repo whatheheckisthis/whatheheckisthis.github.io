@@ -1,6 +1,7 @@
 export const SITE = {
   name: "Dhruv Setty",
   positioning: "Identity Engineer. IGA and IAM control assurance.",
+  focus: "Identity governance and access control across hybrid Entra ID and Active Directory, with evidence an auditor can check.",
   url: "https://whatheheckisthis.github.io",
   description:
     "Dhruv Setty, Identity Engineer in New Zealand. IGA and IAM control assurance across hybrid Entra ID and Active Directory.",
@@ -23,5 +24,6 @@ export const FEATURED = {
   fullName: "Intent-to-Auditable-Trust-Object Index",
   repo: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index",
   readmeText: "whatheheckisthis/README.md",
+  status: "Design stage. v1.0.0 scope is the Entra ID collector.",
   readme: "https://github.com/whatheheckisthis/whatheheckisthis/blob/main/README.md",
 } as const;
