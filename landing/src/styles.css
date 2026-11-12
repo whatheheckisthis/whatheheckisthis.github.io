@@ -442,3 +442,48 @@ html {
   border-radius: 6px; padding: 0.6rem 1.1rem;
 }
 .button--ghost { background: transparent; color: #111111; }
+
+/* ---- Build-out: portfolio layout ---- */
+.page { max-width: 76rem; margin: 0 auto; padding: 0 var(--gutter); }
+.skip-link { position: absolute; left: -999px; top: 0.5rem; background: var(--text); color: var(--bg); padding: 0.5rem 0.9rem; z-index: 20; text-decoration: none; }
+.skip-link:focus { left: 0.75rem; }
+.site-header__inner { justify-content: flex-start; }
+.site-header__spacer { flex: 1; }
+.site-header__inner a.site-header__brand { color: var(--text); font-weight: var(--w-name); letter-spacing: -0.02em; }
+.site-header__inner a.site-header__brand::after { display: none; }
+.eyebrow { margin: 0 0 1rem; font-size: var(--step--1); color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+.hero { min-height: calc(88svh - var(--nav-h)); display: flex; flex-direction: column; justify-content: center; padding: clamp(3rem, 10vh, 7rem) 0 clamp(2.5rem, 8vh, 5rem); }
+.hero__name { margin: 0; font-size: var(--name); font-weight: var(--w-name); line-height: 0.92; letter-spacing: -0.045em; }
+.hero__positioning { margin: 1.5rem 0 0; font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; }
+.hero__focus { margin: 0.6rem 0 0; max-width: 54ch; color: var(--muted); font-size: 1.0625rem; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-top: 2rem; }
+.section { padding: clamp(3.5rem, 10vh, 6rem) 0; border-top: 1px solid var(--rule); }
+.section__title { margin: 0 0 2rem; font-size: var(--step--1); font-weight: var(--w-head); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.about__grid { display: grid; gap: 2rem; align-items: start; }
+@media (min-width: 760px) { .about__grid { grid-template-columns: 200px minmax(0, 1fr); gap: 3.5rem; } }
+.about__grid .about__photo { width: 200px; height: 200px; margin: 0; }
+.about__story p { margin: 0 0 1rem; max-width: 62ch; font-size: 1.125rem; line-height: 1.7; }
+.about__story p:first-child { font-size: clamp(1.25rem, 2vw, 1.4rem); line-height: 1.5; font-weight: 500; }
+.cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+@media (min-width: 760px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 1.5rem; }
+.card p { margin: 0; color: var(--muted); }
+.card__title { margin: 0 0 0.6rem; font-size: var(--step-1); }
+.card__title--lg { font-size: clamp(1.4rem, 3vw, 1.9rem); letter-spacing: -0.02em; }
+.card__title--lg .muted { display: block; margin-top: 0.3rem; font-size: var(--step-0); font-weight: 500; letter-spacing: 0; }
+.card--feature { padding: clamp(1.5rem, 4vw, 2.5rem); }
+.card--feature > p:not(.card__status) { max-width: 60ch; color: var(--text); font-size: 1.0625rem; }
+.card__status { display: inline-block; margin: 0 0 1rem !important; padding: 0.2rem 0.6rem; border: 1px solid var(--rule); border-radius: 999px; font-size: var(--step--1); color: var(--muted) !important; }
+.text-link { font-size: var(--step-0); }
+.contact__grid { display: grid; gap: 2.5rem; }
+@media (min-width: 760px) { .contact__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; } }
+.contact__lede { margin: 0 0 1.25rem; max-width: 42ch; font-size: 1.125rem; }
+.contact .contact__email { font-size: clamp(1.1rem, 2.2vw, 1.4rem); }
+.contact .contact-form { margin-top: 0; max-width: none; }
+.inline-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; }
+.site-footer { border-top: 1px solid var(--rule); }
+.site-footer__inner { max-width: 76rem; margin: 0 auto; padding: 1.75rem var(--gutter); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: var(--step--1); color: var(--muted); }
+.site-footer__inner p { margin: 0; }
+.site-footer__links { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.25rem; }
+.site-footer__links a { color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
