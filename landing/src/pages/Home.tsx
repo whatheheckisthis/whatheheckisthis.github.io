@@ -27,7 +27,7 @@ export default function Home() {
         <section id="about" aria-labelledby="story-h" className="home__story">
           <h2 id="story-h" className="label">About</h2>
           {story ? (
-            <p>{story}</p>
+            story.split("\n\n").map((para) => <p key={para.slice(0, 24)}>{para}</p>)
           ) : (
             <p className="placeholder" role="note">
               [STORY] Placeholder: 80 to 120 words, first person, to be written by Dhruv. Edit{" "}

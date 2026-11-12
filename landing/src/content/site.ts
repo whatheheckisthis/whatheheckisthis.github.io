@@ -23,7 +23,7 @@ export const FEATURED = {
   name: "IĀTŌ",
   fullName: "Intent-to-Auditable-Trust-Object Index",
   repo: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index",
-  readmeText: "whatheheckisthis/README.md",
+  readmeText: "Read the README",
   status: "Design stage. v1.0.0 scope is the Entra ID collector.",
   readme: "https://github.com/whatheheckisthis/whatheheckisthis/blob/main/README.md",
 } as const;
