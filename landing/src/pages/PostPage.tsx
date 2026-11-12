@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import NotFound from "./NotFound";
 import { findPost, formatDate } from "../content/posts";
 
@@ -22,6 +23,7 @@ export default function PostPage() {
           <Link to="/blog/">All posts</Link>
         </p>
       </main>
+      <Footer />
     </>
   );
 }

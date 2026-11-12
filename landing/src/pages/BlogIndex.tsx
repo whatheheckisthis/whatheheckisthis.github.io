@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { POSTS, formatDate } from "../content/posts";
 
 export default function BlogIndex() {
@@ -22,6 +23,7 @@ export default function BlogIndex() {
           </ol>
         )}
       </main>
+      <Footer />
     </>
   );
 }

@@ -10,6 +10,7 @@ export const SITE = {
     { label: "GitHub", text: "GitHub", href: "https://github.com/whatheheckisthis" },
     { label: "LinkedIn", text: "LinkedIn", href: "https://www.linkedin.com/in/its-dhruv-setty" },
   ],
+  location: "Auckland, New Zealand",
   email: "itsdhruvsetty@gmail.com",
   photo: { src: "/dhruv.webp", alt: "Dhruv Setty", width: 400, height: 400 },
   // Dropbox shared link to the resume (opens Dropbox preview). Empty hides the link.
@@ -25,7 +26,23 @@ export const SITE = {
   ],
 } as const;
 
+export const FOCUS = [
+  {
+    title: "Identity governance",
+    body: "Joiner, mover and leaver processes, access reviews and role design that keep access matched to the job, not the history.",
+  },
+  {
+    title: "Access control assurance",
+    body: "Controls tested against evidence, not assumptions, with findings an auditor can trace back to the source.",
+  },
+  {
+    title: "Hybrid identity",
+    body: "Entra ID and Active Directory run as one estate, with a clear owner for every account and every privilege.",
+  },
+] as const;
+
 export const FEATURED = {
+  summary: "An index that turns identity data into audit-ready evidence, so every access decision can be traced from intent to proof.",
   name: "IĀTŌ",
   fullName: "Intent-to-Auditable-Trust-Object Index",
   repo: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index",

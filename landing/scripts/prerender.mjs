@@ -25,6 +25,20 @@ for (const url of routes()) {
     `<meta property="og:url" content="${canonical}" />`,
     `<meta property="og:site_name" content="Dhruv Setty" />`,
     `<meta name="twitter:card" content="summary" />`,
+    `<meta property="og:image" content="${siteUrl}/dhruv.webp" />`,
+    `<meta property="og:image:alt" content="Portrait of Dhruv Setty" />`,
+    meta.path === "/"
+      ? `<script type="application/ld+json">${JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Dhruv Setty",
+          jobTitle: "Identity Engineer",
+          url: siteUrl,
+          image: `${siteUrl}/dhruv.webp`,
+          address: { "@type": "PostalAddress", addressLocality: "Auckland", addressCountry: "NZ" },
+          sameAs: ["https://github.com/whatheheckisthis", "https://www.linkedin.com/in/its-dhruv-setty"],
+        })}</script>`
+      : "",
   ].join("\n    ");
   const page = template.replace("<!--app-head-->", head).replace("<!--app-html-->", html);
   const out = path.join(dist, url, "index.html");
