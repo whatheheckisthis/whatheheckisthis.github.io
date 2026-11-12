@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
-import { FEATURED, FOCUS, SITE } from "../content/site";
+import { FEATURED, FOCUS, PROJECTS, SITE } from "../content/site";
 import { STORY } from "../content/story";
 
 export default function Home() {
@@ -61,6 +61,20 @@ export default function Home() {
               <a className="text-link" href={FEATURED.repo}>View the code</a>
             </div>
           </article>
+          <ul className="cards cards--projects">
+            {PROJECTS.map((p) => (
+              <li key={p.name} className="card">
+                <p className="card__tag">{p.tag}</p>
+                <h3 className="card__title">{p.name}</h3>
+                <p>{p.summary}</p>
+                <div className="actions">
+                  {p.links.filter((l) => l.href && !l.href.startsWith("__")).map((l) => (
+                    <a key={l.text} className="text-link" href={l.href}>{l.text}</a>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section id="contact" className="section contact" aria-labelledby="contact-h">
