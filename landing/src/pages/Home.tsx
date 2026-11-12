@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import { FEATURED, SITE } from "../content/site";
 import { STORY } from "../content/story";
@@ -18,7 +17,6 @@ export default function Home() {
           <ul className="stack">
             {SITE.contact.map((c) => (
               <li key={c.label}>
-                <span className="visually-hidden">{c.label}: </span>
                 <a href={c.href}>{c.text}</a>
               </li>
             ))}
@@ -44,22 +42,11 @@ export default function Home() {
               {FEATURED.name} <span className="muted">({FEATURED.fullName})</span>
             </a>
           </p>
-          <p className="featured__summary">{FEATURED.summary}</p>
+          <p className="featured__summary">
+            <a href={FEATURED.readme}>{FEATURED.readmeText}</a>
+          </p>
         </section>
 
-        <section aria-labelledby="more-h">
-          <h2 id="more-h" className="label">Read</h2>
-          <ul className="stack">
-            <li>
-              <Link to="/blog/">Blog</Link>
-            </li>
-            {SITE.docs.map((d) => (
-              <li key={d.href}>
-                <a href={d.href}>{d.text}</a>
-              </li>
-            ))}
-          </ul>
-        </section>
       </div>
     </main>
     </>
