@@ -411,3 +411,34 @@ html {
     transition: none !important;
   }
 }
+
+.about__photo {
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #E5E5E2;
+  margin-bottom: 1rem;
+}
+.about__resume { margin-top: 1rem; font-weight: 500; }
+.contact__email { font-weight: 500; margin-bottom: 0.75rem; word-break: break-all; }
+.contact-form { display: grid; gap: 0.4rem; margin-top: 1.25rem; max-width: 28rem; }
+.contact-form label { font-size: 0.875rem; color: #444; margin-top: 0.4rem; }
+.contact-form input,
+.contact-form textarea {
+  font: inherit; color: #111111; background: #FFFFFF;
+  border: 1px solid #E5E5E2; border-radius: 6px; padding: 0.6rem 0.7rem; width: 100%;
+}
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible,
+.contact-form button:focus-visible,
+.button:focus-visible { outline: 2px solid #111111; outline-offset: 2px; }
+.contact-form__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; }
+.contact-form button,
+.button {
+  font: inherit; font-weight: 600; cursor: pointer; text-decoration: none;
+  background: #111111; color: #FAFAF8; border: 1px solid #111111;
+  border-radius: 6px; padding: 0.6rem 1.1rem;
+}
+.button--ghost { background: transparent; color: #111111; }
