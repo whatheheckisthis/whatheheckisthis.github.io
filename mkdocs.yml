@@ -1,40 +1,12 @@
-site_name: Dhruv Setty
-site_description: Identity & Access Management portfolio of Dhruv Setty, Auckland.
+site_name: IATO Control Evaluation Framework
 site_url: https://whatheheckisthis.github.io/
-copyright: © 2026 Dhruv Setty · Auckland, New Zealand
+repo_url: https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index
 theme:
   name: material
-  font:
-    text: Inter
-    code: Geist Mono
-  palette:
-    scheme: default
-    primary: black
-    accent: black
-  features:
-    - navigation.top
-    - navigation.footer
-    - content.code.copy
-extra_css:
-  - stylesheets/extra.css
-extra:
-  social:
-    - icon: material/email-outline
-      link: mailto:itsdhruvsetty@gmail.com
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/its-dhruv-setty
-    - icon: fontawesome/brands/github
-      link: https://github.com/whatheheckisthis
-  generator: false
-markdown_extensions:
-  - attr_list
-  - md_in_html
-  - admonition
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+plugins:
+  - search
 nav:
-  - Home: index.md
-  - Skills: skills.md
-  - Projects: projects.md
-  - Contact: contact.md
+  - Overview: index.md
+  - Architecture & Auth: architecture.md
+  - CLI & Schema Reference: reference.md
+  - Deployment & Hardening: deployment.md

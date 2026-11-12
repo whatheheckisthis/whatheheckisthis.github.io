@@ -1,44 +1,69 @@
----
-hide:
-  - navigation
-  - toc
----
+# Overview
 
-<div class="hero" markdown>
+IATO is a read-only collector and policy harness. It normalises SailPoint IdentityIQ (IIQ) XML exports and Microsoft Entra ID snapshots into one JSON document, then evaluates access-control assertions with Rego policies.
 
-<p class="eyebrow">Identity & Access Management</p>
+Source: [`whatheheckisthis/Intent-to-Auditable-Trust-Object-Index`](https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index)
 
-# Access that's right, provable and governed.
+## Implementation status
 
-I'm Dhruv Setty, an IAM practitioner working across Microsoft Entra ID, hybrid Active Directory and identity governance. I build tools that make access controls testable and audit-ready. Based in Auckland, with work rights in New Zealand and Australia.
+Status is taken from the code and `docs/COMPLIANCE_CROSSWALK.csv` on `main`.
 
-[Email me](mailto:itsdhruvsetty@gmail.com){ .md-button .md-button--primary }
-[GitHub](https://github.com/whatheheckisthis){ .md-button }
+| Component | Path | Status |
+|---|---|---|
+| Multi-source CLI | `iato/cli.py` | Implemented (Python) |
+| SailPoint IIQ XML normaliser | `ingest/sailpoint_iiq.py` | Implemented |
+| Entra ID live collector | `collectors/azure/entra_snapshot.py` | Implemented |
+| AWS IAM collector | `collectors/aws/iam_snapshot.py` | Implemented, standalone (not wired into the CLI) |
+| Rego policies | `policies/ac/IATO-AC-012.rego`, `IATO-AC-013.rego` | Implemented |
+| AI governance / backup policies | `policies/ai/`, `policies/bk/` | Empty |
+| Crosswalk controls | `docs/COMPLIANCE_CROSSWALK.csv` | 2 implemented, 38 planned |
+| Container image | `Containerfile` | Implemented (`python:3.12-slim`) |
+| Kubernetes manifests | — | Not present in the repository |
 
-</div>
+## Repository layout
 
-## Identity is the control plane.
+```
+.
+├── Containerfile
+├── iato/cli.py                       # multi-source entry point
+├── ingest/sailpoint_iiq.py           # IIQ XML normaliser
+├── collectors/
+│   ├── azure/entra_snapshot.py       # Microsoft Graph collector
+│   └── aws/iam_snapshot.py           # boto3 IAM collector
+├── policies/ac/                      # Rego controls
+├── docs/
+│   ├── COMPLIANCE_CROSSWALK.csv
+│   └── podman-multisource.md
+└── test/
+    ├── unit/                         # unittest + Rego unit tests
+    ├── mutations/                    # PASS/FAIL fixtures + manifest
+    └── run_tests.py                  # regopy mutation runner
+```
 
-My work centres on the full identity lifecycle: who gets access, why they have it, whether it still holds, and how to prove it.
+## Implemented controls
 
-That means governance and certification, entitlement and separation-of-duties checks, and policy-driven authentication across cloud and hybrid estates.
+| Control | Title | Denies when | NZISM | Essential Eight | ISO 27001 | SOC 2 |
+|---|---|---|---|---|---|---|
+| IATO-AC-012 | MFA for privileged accounts | `privileged == true` and `mfa_enabled != true` | Multi-factor authentication | Multi-factor Authentication - ML3 | A.5.17; A.8.5 | CC6.1; CC6.6 |
+| IATO-AC-013 | Standing privileged access elimination | `privileged == true` and `standing_privileged_access == true` | Privileged access management | Restrict Administrative Privileges - ML3 | A.5.15; A.5.18 | CC6.2; CC6.3 |
 
-<div class="grid cards" markdown>
+Framework tags are crosswalk indicators and require assessor validation.
 
--   :material-account-check-outline: **Skills**
+## Quick start
 
-    ---
+```sh
+python -m unittest discover -s test/unit     # 13 tests
+pip install regopy && python test/run_tests.py   # mutation fixtures
+python -m iato.cli --sailpoint-xml input/iiq-export.xml --entra-json input/entra-snapshot.json
+```
 
-    From governance policy down to the directory.
+## Crosswalk coverage
 
-    [:octicons-arrow-right-24: See skills](skills.md)
-
--   :material-file-certificate-outline: **Projects**
-
-    ---
-
-    Tools that turn access controls into evidence.
-
-    [:octicons-arrow-right-24: See projects](projects.md)
-
-</div>
+| Domain | Controls |
+|---|---|
+| Access Control | 13 |
+| Configuration Management | 9 |
+| AI Governance | 6 |
+| Backup and Recovery | 4 |
+| Incident Management | 4 |
+| Supply Chain Integrity | 4 |
