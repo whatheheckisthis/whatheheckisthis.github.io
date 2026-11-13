@@ -10,12 +10,13 @@ export interface PageMeta {
 
 export function metaFor(path: string): PageMeta {
   if (path === "/case-studies/") {
-    return {
-      title: `Case Studies | ${SITE.name}`,
-      description: "FPGA to GPU peer-to-peer pipeline: zero-copy P2P over PCIe, DMA bus mastering and SMMU address translation on Arm Neoverse.",
-      path,
-      type: "article",
-    };
+    return { title: `Case Studies | ${SITE.name}`, description: "Case studies from a Correctness Framework for Heterogeneous Accelerator Architectures: FPGA to GPU P2P, and weak memory with SVE2 on Armv9.0-A.", path, type: "website" };
+  }
+  if (path === "/case-studies/fpga-gpu-p2p/") {
+    return { title: `FPGA to GPU Peer-to-Peer Pipeline | ${SITE.name}`, description: "Zero-copy P2P over PCIe, DMA bus mastering and SMMU address translation on Arm Neoverse.", path, type: "article" };
+  }
+  if (path === "/case-studies/armv9-weak-memory-sve2/") {
+    return { title: `Weak Memory, SVE2 and Lossless Lane Reduction on Armv9.0-A | ${SITE.name}`, description: "Modelling concurrency on Neoverse N2 and Cortex-X3: single-copy atomicity boundaries, SVE2 vector length and lossless parametric lane reduction.", path, type: "article" };
   }
   if (path === "/blog/") {
     return { title: `Blog | ${SITE.name}`, description: `Notes on identity, access and assurance by ${SITE.name}.`, path, type: "website" };
