@@ -100,7 +100,7 @@ export default function Home() {
               <p className="contact__lede">Hiring for identity or access work, or want to compare notes? Send a message and I'll reply within two working days.</p>
               <ul className="inline-list">
                 {SITE.contact.map((c) => (
-                  <li key={c.label}><a href={c.href}>{c.text}</a></li>
+                  <li key={c.label}><a className="icon-link" href={c.href} aria-label={c.label} title={c.label}><img src={c.icon} alt="" width="22" height="22" /></a></li>
                 ))}
               </ul>
             </div>

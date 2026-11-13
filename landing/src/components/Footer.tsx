@@ -9,7 +9,7 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} {SITE.name}</p>
         <ul className="site-footer__links">
           {SITE.contact.map((c) => (
-            <li key={c.label}><a href={c.href}>{c.text}</a></li>
+            <li key={c.label}><a className="icon-link" href={c.href} aria-label={c.label} title={c.label}><img src={c.icon} alt="" width="22" height="22" /></a></li>
           ))}
         </ul>
       </div>

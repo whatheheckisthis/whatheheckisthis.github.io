@@ -6,8 +6,8 @@ export const SITE = {
   description:
     "Dhruv Setty, Identity Engineer in New Zealand. IGA and IAM control assurance across hybrid Entra ID and Active Directory.",
   contact: [
-    { label: "GitHub", text: "GitHub", href: "https://github.com/whatheheckisthis" },
-    { label: "LinkedIn", text: "LinkedIn", href: "https://www.linkedin.com/in/its-dhruv-setty" },
+    { label: "GitHub", text: "GitHub", href: "https://github.com/whatheheckisthis", icon: "/icons/github.svg" },
+    { label: "LinkedIn", text: "LinkedIn", href: "https://www.linkedin.com/in/its-dhruv-setty", icon: "/icons/linkedin.png" },
   ],
   location: "",
   // Cloudflare Worker that relays the contact form to Resend. Empty disables sending.
