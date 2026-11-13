@@ -1170,3 +1170,5 @@ code.ic,
 .cs-refs { padding-left: 1.1rem; }
 .cs-refs li { margin: 0.35rem 0; }
 @media (prefers-reduced-motion: reduce) { .cs-index__link { transition: none; } .cs-index__link:hover { transform: none; } }
+
+.cs-figure figcaption code.ic { white-space: nowrap; }
