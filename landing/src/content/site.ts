@@ -37,7 +37,7 @@ export const FOCUS = [
   },
   {
     title: "Hybrid identity",
-    body: "Entra ID and Active Directory run as one estate, with a clear owner for every account and every privilege.",
+    body: "Entra ID and Active Directory governed as one hybrid directory, with every account and privileged role mapped in a controls crosswalk and tracked in the risk register.",
   },
 ] as const;
 
