@@ -17,7 +17,6 @@ export default function PostPage() {
     <>
       <Header />
       <div className="blog-shell fade-in" id="main">
-        <BlogSidebar current={post.slug} />
         <main className="blog-main">
           <article className="prose-article">
             <header className="post-header">
@@ -56,6 +55,7 @@ export default function PostPage() {
             ) : <span />}
           </nav>
         </main>
+        <BlogSidebar current={post.slug} />
       </div>
       <Footer />
     </>

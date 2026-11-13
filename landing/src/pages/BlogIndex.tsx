@@ -9,12 +9,8 @@ export default function BlogIndex() {
     <>
       <Header />
       <div className="blog-shell fade-in" id="main">
-        <BlogSidebar />
         <main className="blog-main">
-          <header className="blog-head">
-            <h1>Blog</h1>
-            <p className="lede">Notes on identity, access and assurance.</p>
-          </header>
+          <h1 className="visually-hidden">Blog</h1>
           {POSTS.length === 0 ? (
             <p>No posts yet.</p>
           ) : (
@@ -25,6 +21,7 @@ export default function BlogIndex() {
             </div>
           )}
         </main>
+        <BlogSidebar />
       </div>
       <Footer />
     </>
