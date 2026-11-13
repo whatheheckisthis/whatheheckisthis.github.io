@@ -452,7 +452,7 @@ html {
 .site-header__inner a.site-header__brand::after { display: none; }
 .eyebrow { margin: 0 0 1rem; font-size: var(--step--1); color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
 .hero { min-height: calc(88svh - var(--nav-h)); display: flex; flex-direction: column; justify-content: center; padding: clamp(3rem, 10vh, 7rem) 0 clamp(2.5rem, 8vh, 5rem); }
-.hero__name { margin: 0; font-size: var(--name); font-weight: var(--w-name); line-height: 0.92; letter-spacing: -0.045em; }
+.hero__name { --animate-duration: 700ms; margin: 0; font-size: var(--name); font-weight: var(--w-name); line-height: 0.92; letter-spacing: -0.045em; }
 .hero__positioning { margin: 1.5rem 0 0; font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; }
 .hero__focus { margin: 0.6rem 0 0; max-width: 54ch; color: var(--muted); font-size: 1.0625rem; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-top: 2rem; }
@@ -498,3 +498,17 @@ html {
 .contact-form__hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .contact-form__status { min-height: 1.25rem; font-size: 0.9rem; margin-top: 0.5rem; }
 .contact-form button[disabled] { opacity: 0.6; cursor: progress; }
+
+/* Stylised hero name: solid first name, outlined surname that fills on hover. Entry via animate.css fadeInUp. */
+.hero__name > span { display: inline-block; }
+.hero__last {
+  color: transparent;
+  -webkit-text-stroke: clamp(1.5px, 0.25vw, 2.5px) var(--text);
+  background: linear-gradient(var(--text), var(--text)) left / 0% 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size 600ms cubic-bezier(.2,.7,.2,1);
+  animation-delay: 140ms;
+}
+.hero__name:hover .hero__last { background-size: 100% 100%; }
+@media (prefers-reduced-motion: reduce) { .hero__last { transition: none; } }

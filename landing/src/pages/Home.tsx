@@ -12,7 +12,10 @@ export default function Home() {
       <main id="main" className="page fade-in">
         <section className="hero" aria-labelledby="hero-h">
           {SITE.location ? <p className="eyebrow">{SITE.location}</p> : null}
-          <h1 id="hero-h" className="hero__name">{SITE.name}</h1>
+          <h1 id="hero-h" className="hero__name" aria-label={SITE.name}>
+            <span className="hero__first animate__animated animate__fadeInUp" aria-hidden="true">{SITE.name.split(" ")[0]}</span>{" "}
+            <span className="hero__last animate__animated animate__fadeInUp" aria-hidden="true">{SITE.name.split(" ").slice(1).join(" ")}</span>
+          </h1>
           <p className="hero__positioning">{SITE.positioning}</p>
           <p className="hero__focus">{SITE.focus}</p>
           <div className="actions">
