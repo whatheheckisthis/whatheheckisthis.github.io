@@ -59,8 +59,8 @@ export default function FlashDeck({ label, children, noun = "card" }: { label: s
             if (fly) opacity = 0;
           } else {
             const depth = Math.min(offset, 3) - (fly === 1 ? 1 : 0);
-            transform = `translate3d(0,${depth * 14}px,0) scale(${1 - depth * 0.045})`;
-            opacity = offset > 3 ? 0 : 1 - depth * 0.18;
+            transform = `translate3d(0,${depth * 20}px,0) scale(${1 - depth * 0.05})`;
+            opacity = offset > 3 ? 0 : 1 - depth * 0.22;
           }
           const dragging = isTop && start.current !== null && !fly;
           return (
