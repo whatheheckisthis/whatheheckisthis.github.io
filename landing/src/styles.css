@@ -1281,3 +1281,24 @@ code.ic,
 .icon-link:hover, .icon-link:focus-visible { transform: translateY(-2px); border-color: rgba(232, 89, 12, 0.5); box-shadow: 0 8px 18px -12px rgba(232, 89, 12, 0.55); }
 .inline-list:has(.icon-link), .site-footer__links:has(.icon-link) { gap: 0.6rem; align-items: center; }
 @media (prefers-reduced-motion: reduce) { .icon-link { transition: none; } .icon-link:hover { transform: none; } }
+
+/* Flash-card decks (Focus, Recent Projects) */
+.deck { --ease-card: cubic-bezier(.22,1,.36,1); max-width: 40rem; margin: 0 auto; outline: none; }
+.deck:focus-visible .deck__card.is-top .flash { box-shadow: 0 0 0 2px var(--press), 0 24px 60px -28px rgba(17,17,17,.35); }
+.deck__stage { display: grid; padding-bottom: 2.75rem; touch-action: pan-y; user-select: none; cursor: grab; }
+.deck__stage:active { cursor: grabbing; }
+.deck__card { grid-area: 1 / 1; transform-origin: 50% 100%; transition: transform 420ms var(--ease-card), opacity 320ms ease; will-change: transform; }
+.deck__card.is-dragging { transition: none; }
+.deck .flash { height: 100%; min-height: 22rem; display: flex; flex-direction: column; padding: clamp(1.75rem, 4vw, 2.75rem); border-radius: 18px; border: 1px solid rgba(17,17,17,.08); background: linear-gradient(180deg, #fff 0%, #fcfcfa 100%); box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 24px 60px -32px rgba(17,17,17,.28), 0 2px 6px -2px rgba(17,17,17,.06); }
+.deck__card:not(.is-top) .flash { box-shadow: 0 10px 30px -24px rgba(17,17,17,.25); }
+.deck .flash .card__links, .deck .flash .focus-card__refs { margin-top: auto; padding-top: 1.5rem; }
+.deck .flash .card__title { font-size: clamp(1.4rem, 3vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.15; }
+.deck .flash .card__tag, .deck .flash .focus-card__index { letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; color: var(--muted); }
+.deck__controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
+.deck__btn { width: 2.75rem; height: 2.75rem; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); color: var(--text); font-size: 1.05rem; cursor: pointer; transition: transform 200ms var(--ease-card), border-color 200ms, color 200ms; }
+.deck__btn:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--press); color: var(--press); }
+.deck__btn:disabled { opacity: .3; cursor: default; }
+.deck__count { font-family: var(--mono); font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.deck__now { color: var(--text); }
+.deck__hint { margin: .75rem 0 0; text-align: center; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); opacity: .7; }
+@media (prefers-reduced-motion: reduce) { .deck__card { transition: opacity 150ms linear; } }

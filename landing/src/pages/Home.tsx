@@ -4,7 +4,7 @@ import ContactForm from "../components/ContactForm";
 import { FEATURED, FOCUS, PROJECTS, SITE } from "../content/site";
 import { GREETING, STORY } from "../content/story";
 import { rich } from "../lib/rich";
-import Carousel from "../components/Carousel";
+import FlashDeck from "../components/FlashDeck";
 import HopGreeting from "../components/HopGreeting";
 
 export default function Home() {
@@ -51,9 +51,9 @@ export default function Home() {
 
         <section id="focus" className="section" aria-labelledby="focus-h">
           <h2 id="focus-h" className="section__title">What I focus on</h2>
-          <ul className="cards cards--focus">
+          <FlashDeck label="What I focus on" noun="focus area">
             {FOCUS.map((f, i) => (
-              <li key={f.title} className="card focus-card">
+              <article key={f.title} className="card focus-card flash">
                 <span className="focus-card__index" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="card__title">{f.title}</h3>
                 <p className="focus-card__lead">{f.lead}</p>
@@ -61,15 +61,15 @@ export default function Home() {
                 <ul className="focus-card__refs" aria-label="Control references">
                   {f.refs.map((r) => <li key={r}><code className="ic">{r}</code></li>)}
                 </ul>
-              </li>
+              </article>
             ))}
-          </ul>
+          </FlashDeck>
         </section>
 
         <section id="work" className="section" aria-labelledby="work-h">
           <h2 id="work-h" className="section__title">Recent Projects</h2>
-          <Carousel label="Recent projects">
-            <li className="card slide">
+          <FlashDeck label="Recent projects" noun="project">
+            <article className="card flash">
               <p className="card__tag">Assurance</p>
               <h3 className="card__title">{FEATURED.name}</h3>
               <p>{rich(FEATURED.summary)}</p>
@@ -77,9 +77,9 @@ export default function Home() {
                 <a className="text-link" href={FEATURED.readme}>{FEATURED.readmeText}</a>
                 <a className="text-link" href={FEATURED.repo}>View More</a>
               </div>
-            </li>
+            </article>
             {PROJECTS.map((p) => (
-              <li key={p.name} className="card slide">
+              <article key={p.name} className="card flash">
                 <p className="card__tag">{p.tag}</p>
                 <h3 className="card__title">{p.name}</h3>
                 <p>{rich(p.summary)}</p>
@@ -88,9 +88,9 @@ export default function Home() {
                     <a key={l.text} className="text-link" href={l.href}>{l.text}</a>
                   ))}
                 </div>
-              </li>
+              </article>
             ))}
-          </Carousel>
+          </FlashDeck>
         </section>
 
         <section id="contact" className="section contact" aria-labelledby="contact-h">
