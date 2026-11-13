@@ -34,7 +34,6 @@ export default function Home() {
               <div className="portrait__frame">
                 <img className="portrait__img" src={SITE.photo.src} alt="Portrait of Dhruv Setty" width={SITE.photo.width} height={SITE.photo.height} loading="lazy" decoding="async" />
               </div>
-              <figcaption className="portrait__tag">Dhruv Setty <span aria-hidden="true">✦</span> Tāmaki Makaurau</figcaption>
             </figure>
             <div className="about__story">
               {GREETING ? <p className="about__greeting">{GREETING}</p> : null}
