@@ -42,7 +42,7 @@ export const FOCUS = [
 ] as const;
 
 export const FEATURED = {
-  summary: "v1.0.0. Entra ID collection (--live-entra) runs non-interactively and daemonless via the Microsoft Graph API, replacing ad hoc az ad or PowerShell queries with a repeatable run. It pages users, directory role assignments, Conditional Access policies and groups via @odata.nextLink, and that is the complete set. $select retrieves only the required attributes. Output is normalised to a common JSON schema for separation-of-duties, privileged-access and migration-drift assertions. Auth is iato.pem or Kubernetes workload identity, with tokens held in process memory only, never persisted. Enforce least privilege on the app registration: .default returns whatever consent has been granted.",
+  summary: "`v1.0.0`. Entra ID collection (`--live-entra`) runs non-interactively and daemonless via the Microsoft Graph API, replacing ad hoc `az ad` or PowerShell queries with a repeatable run. It pages users, directory role assignments, Conditional Access policies and groups via `@odata.nextLink`, and that is the complete set. `$select` retrieves only the required attributes. Output is normalised to a common JSON schema for separation-of-duties, privileged-access and migration-drift assertions. Auth is `iato.pem` or Kubernetes workload identity, with tokens held in process memory only, never persisted. Enforce least privilege on the app registration: `.default` returns whatever consent has been granted.",
   name: "Identity control evaluation for Entra ID",
   fullName: "Intent-to-Auditable-Trust-Object Index",
   repo: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index",
@@ -57,7 +57,7 @@ export const PROJECTS = [
     name: "AArch64 virtualisation study",
     tag: "Virtualisation",
     summary:
-      "Part of my Correctness Framework for Heterogeneous Accelerator Architectures. Formally analysed Stage 2 address translation and memory state transformations to ensure data integrity, race concurrency, and ownership preservation under virtualised hardware semantics. Applied observational equivalence and congruence proofs to Variable-Length Array (VLA) execution models, proving that asynchronous accelerator offloading preserves observable program behavior.",
+      "Part of my Correctness Framework for Heterogeneous Accelerator Architectures. Formally analysed `Stage 2` address translation and memory state transformations to ensure data integrity, race concurrency, and ownership preservation under virtualised hardware semantics. Applied observational equivalence and congruence proofs to Variable-Length Array (`VLA`) execution models, proving that asynchronous accelerator offloading preserves observable program behavior.",
     links: [
       { text: "Learn More", href: "https://www.dropbox.com/scl/fi/nfrnwf5lten7b74ud1fbn/A64-CBLT-STUDY-001-eca7fe16806a.pdf?rlkey=rl6pegel190x12yx8mhkpbn7s&st=kjv0iqll&dl=0" },
       { text: "View the Lean proofs", href: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-v7" },
@@ -67,7 +67,7 @@ export const PROJECTS = [
     name: "FPGA to GPU peer-to-peer pipeline",
     tag: "HPC",
     summary:
-      "Part of my Correctness Framework for Heterogeneous Accelerator Architectures. Designed and evaluated low-latency FPGA GPU PCIe P2P memory access paths, optimising DMA, IOMMU/SMMU address translation, and cache coherence across heterogeneous interconnects.",
+      "Part of my Correctness Framework for Heterogeneous Accelerator Architectures. Designed and evaluated low-latency FPGA GPU `PCIe P2P` memory access paths, optimising `DMA`, `IOMMU/SMMU` address translation, and cache coherence across heterogeneous interconnects.",
     links: [{ text: "Learn More", href: "https://www.dropbox.com/scl/fi/lrntb1t05v04yb1wz4ei8/CBLT-2-1cf710990566.pdf?rlkey=rp2c40yxcu7wo0m9yqnl13ckc&st=1x4jym61&dl=0" }],
   },
 ] as const;

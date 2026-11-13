@@ -979,3 +979,64 @@ html {
   color: var(--muted);
 }
 .cs-main .post-body h2 { font-size: 1.5rem; margin-top: 2.75rem; }
+
+/* Inline code: grey rectangle, Markdown style */
+code.ic,
+.post-body :not(pre) > code,
+.cs-main :not(pre) > code {
+  padding: 0.08em 0.38em;
+  background: #ececea;
+  border: 1px solid #deded9;
+  border-radius: 4px;
+  color: #1f1f1d;
+  font-family: var(--mono);
+  font-size: 0.86em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Projects carousel */
+.carousel { margin-top: 1.25rem; }
+.carousel__track {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0.1rem 0.75rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(88%, 26rem);
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+@media (min-width: 1000px) { .carousel__track { grid-auto-columns: calc((100% - 2.5rem) / 3); } }
+.carousel .slide {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 100%;
+}
+.carousel .slide .card__title { margin: 0; }
+.carousel .slide > p:not(.card__tag) { font-size: 0.95rem; line-height: 1.6; }
+.carousel .slide .actions { margin-top: auto; padding-top: 0.6rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+.carousel__controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.75rem; }
+.carousel__btn {
+  width: 2.25rem; height: 2.25rem;
+  border: 1px solid var(--rule); border-radius: 999px;
+  background: var(--surface); color: var(--text);
+  font-size: 1.25rem; line-height: 1; cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+.carousel__btn:hover:not(:disabled) { background: var(--press, #e8590c); border-color: var(--press, #e8590c); color: #fff; }
+.carousel__btn:active:not(:disabled) { background: var(--press-deep, #c2410c); }
+.carousel__btn:disabled { opacity: 0.35; cursor: default; }
+.carousel__dots { display: flex; gap: 0.5rem; }
+.carousel__dot { width: 0.55rem; height: 0.55rem; padding: 0; border: 0; border-radius: 999px; background: var(--rule); cursor: pointer; transition: background-color 160ms ease, width 160ms ease; }
+.carousel__dot.is-active { width: 1.4rem; background: var(--text); }
+@media (min-width: 1000px) { .carousel__controls { display: none; } }
+@media (prefers-reduced-motion: reduce) { .carousel__track { scroll-behavior: auto; } }

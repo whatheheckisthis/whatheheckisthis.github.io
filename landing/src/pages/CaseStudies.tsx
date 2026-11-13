@@ -37,7 +37,7 @@ export default function CaseStudies() {
             </p>
             <dl className="cs-facts">
               <div><dt>Period</dt><dd>6 April 2024 to 30 January 2025</dd></div>
-              <div><dt>Platform</dt><dd>Arm Neoverse N2/V3, CMN, QEMU/KVM/VFIO, AF_XDP</dd></div>
+              <div><dt>Platform</dt><dd>Arm Neoverse N2/V3, <code className="ic">CMN</code>, <code className="ic">QEMU/KVM/VFIO</code>, <code className="ic">AF_XDP</code></dd></div>
               <div><dt>Framework</dt><dd>Correctness Framework for Heterogeneous Accelerator Architectures</dd></div>
             </dl>
           </header>
@@ -50,7 +50,7 @@ export default function CaseStudies() {
               h={414}
               label="Figure 1 · System overview"
             >
-              An Arm coordinator running AF_XDP control drives both devices with small writes only: write-combined MMIO
+              An Arm coordinator running <code className="ic">AF_XDP</code> control drives both devices with small writes only: write-combined MMIO
               to the FPGA parser and doorbells to the GPU runtime. The payload itself never visits the coordinator. It
               travels FPGA to GPU as PCIe peer-to-peer traffic.
             </Figure>
@@ -72,9 +72,9 @@ export default function CaseStudies() {
               label="Figure 2 · Two-track datapath"
             >
               Instead of staging data through CPU RAM, the system exposes the physical memory space, the PCIe Base
-              Address Registers (BAR), of one device so the other can initiate direct read and write transactions
+              Address Registers (<code className="ic">BAR</code>), of one device so the other can initiate direct read and write transactions
               across the bus. Control and payload are split: the CPU touches only descriptors and doorbells, while bulk
-              payload moves straight into GPU peer memory. The invariant is zero CPU payload copies in direct mode, and
+              payload moves straight into GPU peer memory. The invariant is <code className="ic">N_cpu_payload_copies = 0</code> in direct mode, and
               any fallback to host staging is exported as telemetry, never taken silently.
             </Figure>
 
@@ -87,7 +87,7 @@ export default function CaseStudies() {
               label="Figure 3 · Transaction sequence"
             >
               Either the FPGA or the GPU acts as the bus master and orchestrates the movement. Here the CPU's role ends
-              at step 3, the doorbell. The FPGA's DMA engine then issues translated P2P writes into GPU memory (step 4),
+              at step 3, the doorbell. The FPGA's <code className="ic">DMA</code> engine then issues translated P2P writes into GPU memory (step 4),
               the GPU signals completion (step 5), and the buffer is only reaped once its sequence and epoch check out.
               Large streams move across the interconnect asynchronously without consuming CPU cycles.
             </Figure>
@@ -101,9 +101,9 @@ export default function CaseStudies() {
               label="Figure 4 · Topology and SMMU domains"
             >
               Devices work in their own virtual address spaces. The IOMMU, on Arm the System MMU, translates
-              device-visible addresses into physical host-bus addresses. Each requester carries its own stream ID and
-              SMMU domain, which gives memory-access protection, tenant isolation and valid routing across the PCIe root
-              complex. Under VFIO, a DMA outside the active tenant mapping must fault, not land.
+              device-visible addresses into physical host-bus addresses. Each requester carries its own stream ID (<code className="ic">s_f</code>, <code className="ic">s_g</code>) and
+              SMMU domain (<code className="ic">D_f</code>, <code className="ic">D_g</code>), which gives memory-access protection, tenant isolation and valid routing across the PCIe root
+              complex. Under <code className="ic">VFIO</code>, a DMA outside the active tenant mapping must fault, not land.
             </Figure>
             <Figure
               src="/case-studies/p2p-smmu-teardown.png"
@@ -121,13 +121,13 @@ export default function CaseStudies() {
             <p>
               The pipeline sits inside a broader Correctness Framework for Heterogeneous Accelerator Architectures. Its
               formal side is a draft preprint, <em>A Coinductive Bisimulation Characterisation of Parameterised SVE State
-              under Virtualisation-Structured Dynamics</em>. It treats hardware and hypervisor internals (EL2, MMU, VMID,
+              under Virtualisation-Structured Dynamics</em>. It treats hardware and hypervisor internals (<code className="ic">EL2</code>, <code className="ic">MMU</code>, <code className="ic">VMID</code>,
               scheduling) as an abstract, correctness-preserving environment and models only what can be observed.
             </p>
             <p>
-              Configurations pair vector state indexed by SVE vector length (128, 256 or 512 bits) with an architectural
+              Configurations pair vector state indexed by SVE vector length (<code className="ic">VL ::= 128 | 256 | 512</code>) with an architectural
               projection. Execution, migration and reconfiguration are labelled transitions, and an embedding between
-              vector-length spaces preserves observation. The main theorem, migration preservation, says that if one
+              vector-length spaces preserves observation. The main theorem, migration preservation, says that if <code className="ic">C_H ⊑ C_G</code> then <code className="ic">O(mig(C_H)) = O(mig(C_G))</code>: if one
               configuration refines another, migrating both yields the same observable behaviour. It rests on lemmas for
               embedding preservation, refinement stability, migration invariance, trace stability and commutativity.
             </p>

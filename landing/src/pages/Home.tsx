@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import { FEATURED, FOCUS, PROJECTS, SITE } from "../content/site";
 import { GREETING, STORY } from "../content/story";
+import { rich } from "../lib/rich";
+import Carousel from "../components/Carousel";
 
 export default function Home() {
   const story = STORY.trim();
@@ -56,6 +58,33 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section id="work" className="section" aria-labelledby="work-h">
+          <h2 id="work-h" className="section__title">Recent Projects</h2>
+          <Carousel label="Recent projects">
+            <li className="card slide">
+              <p className="card__tag">Assurance</p>
+              <h3 className="card__title">{FEATURED.name}</h3>
+              <p>{rich(FEATURED.summary)}</p>
+              <div className="actions">
+                <a className="text-link" href={FEATURED.readme}>{FEATURED.readmeText}</a>
+                <a className="text-link" href={FEATURED.repo}>View the code</a>
+              </div>
+            </li>
+            {PROJECTS.map((p) => (
+              <li key={p.name} className="card slide">
+                <p className="card__tag">{p.tag}</p>
+                <h3 className="card__title">{p.name}</h3>
+                <p>{rich(p.summary)}</p>
+                <div className="actions">
+                  {p.links.filter((l) => l.href && !l.href.startsWith("__")).map((l) => (
+                    <a key={l.text} className="text-link" href={l.href}>{l.text}</a>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </Carousel>
         </section>
 
         <section id="work" className="section" aria-labelledby="work-h">
