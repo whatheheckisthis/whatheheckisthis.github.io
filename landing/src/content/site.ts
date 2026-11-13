@@ -42,7 +42,7 @@ export const FOCUS = [
 ] as const;
 
 export const FEATURED = {
-  summary: "An index that turns identity data into audit-ready evidence, so every access decision can be traced from intent to proof.",
+  summary: "v1.0.0. Entra ID collection (--live-entra) runs non-interactively and daemonless via the Microsoft Graph API, replacing ad hoc az ad or PowerShell queries with a repeatable run. It pages users, directory role assignments, Conditional Access policies and groups via @odata.nextLink, and that is the complete set. $select retrieves only the required attributes. Output is normalised to a common JSON schema for separation-of-duties, privileged-access and migration-drift assertions. Auth is iato.pem or Kubernetes workload identity, with tokens held in process memory only, never persisted. Enforce least privilege on the app registration: .default returns whatever consent has been granted.",
   name: "IĀTŌ",
   fullName: "Intent-to-Auditable-Trust-Object Index",
   repo: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index",
