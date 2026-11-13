@@ -1143,15 +1143,18 @@ code.ic,
 }
 @media (prefers-reduced-motion: reduce) { .hop--go .hop__ch { animation: none; } }
 
-/* Case studies index */
+/* Case studies index: identical 4:3 cards, covers levelled to one height, justified text, no hyphen breaks */
 .cs-index { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
 @media (min-width: 760px) { .cs-index { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cs-index__item { container-type: inline-size; }
 .cs-index__link {
-  height: 100%;
+  box-sizing: border-box;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
   display: grid;
   grid-template-rows: auto auto auto 1fr auto;
-  row-gap: 0.55rem;
-  padding: 1.4rem;
+  row-gap: 2.2cqi;
+  padding: 5.5cqi 6cqi;
   border: 1px solid var(--rule);
   border-radius: 12px;
   background: linear-gradient(180deg, #ffffff 0%, #fafaf8 100%);
@@ -1161,11 +1164,21 @@ code.ic,
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 .cs-index__link:hover { transform: translateY(-2px); border-color: #d6d6d1; box-shadow: 0 14px 32px -20px rgba(17, 17, 17, 0.28); }
-.cs-index__link img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #fff; border-radius: 6px; margin-bottom: 0.4rem; }
-.cs-index__num { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.cs-index__title { font-size: 1.2rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; text-wrap: balance; }
-.cs-index__summary { color: var(--muted); font-size: 0.95rem; line-height: 1.6; text-align: justify; hyphens: manual; }
-.cs-index__more { padding-top: 0.75rem; border-top: 1px solid var(--rule); font-weight: 600; color: var(--press, #e8590c); }
+.cs-index__link img { display: block; width: 100%; height: auto; aspect-ratio: 1600 / 460; object-fit: contain; }
+.cs-index__num { font-family: var(--mono); font-size: max(0.68rem, 2.4cqi); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.cs-index__title { font-size: 4.6cqi; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; text-wrap: balance; hyphens: manual; -webkit-hyphens: manual; }
+.cs-index__summary {
+  align-self: start;
+  color: var(--muted);
+  font-size: 3.3cqi;
+  line-height: 1.55;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  word-spacing: -0.02em;
+}
+.cs-index__more { padding-top: 2.4cqi; border-top: 1px solid var(--rule); font-size: max(0.8rem, 3.2cqi); font-weight: 600; color: var(--press, #e8590c); }
 .cs-kicker a { color: inherit; }
 .cs-refs { padding-left: 1.1rem; }
 .cs-refs li { margin: 0.35rem 0; }
