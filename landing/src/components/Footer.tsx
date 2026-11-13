@@ -1,5 +1,6 @@
 import { SITE } from "../content/site";
 import BackToTop from "./BackToTop";
+import PlaneTrails from "./PlaneTrails";
 
 export default function Footer() {
   return (
@@ -13,6 +14,7 @@ export default function Footer() {
         </ul>
       </div>
       <BackToTop />
+      <PlaneTrails />
     </footer>
   );
 }
