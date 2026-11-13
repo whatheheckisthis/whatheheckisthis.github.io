@@ -87,35 +87,6 @@ export default function Home() {
           </Carousel>
         </section>
 
-        <section id="work" className="section" aria-labelledby="work-h">
-          <h2 id="work-h" className="section__title">Recent Projects</h2>
-          <article className="card card--feature">
-            <p className="card__tag">Assurance</p>
-            <h3 className="card__title card__title--lg">
-              {FEATURED.name}
-            </h3>
-            <p>{FEATURED.summary}</p>
-            <div className="actions">
-              <a className="button button--ghost" href={FEATURED.readme}>{FEATURED.readmeText}</a>
-              <a className="text-link" href={FEATURED.repo}>View the code</a>
-            </div>
-          </article>
-          <ul className="cards cards--projects">
-            {PROJECTS.map((p) => (
-              <li key={p.name} className="card">
-                <p className="card__tag">{p.tag}</p>
-                <h3 className="card__title">{p.name}</h3>
-                <p>{p.summary}</p>
-                <div className="actions">
-                  {p.links.filter((l) => l.href && !l.href.startsWith("__")).map((l) => (
-                    <a key={l.text} className="text-link" href={l.href}>{l.text}</a>
-                  ))}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-
         <section id="contact" className="section contact" aria-labelledby="contact-h">
           <h2 id="contact-h" className="section__title">Get in touch</h2>
           <div className="contact__grid">
