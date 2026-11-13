@@ -493,3 +493,7 @@ html {
 .cards--projects .card__title { margin: 0; }
 .cards--projects .actions { margin-top: auto; padding-top: 0.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 .card__tag { margin: 0; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+.contact-form__hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.contact-form__status { min-height: 1.25rem; font-size: 0.9rem; margin-top: 0.5rem; }
+.contact-form button[disabled] { opacity: 0.6; cursor: progress; }

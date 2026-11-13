@@ -22,7 +22,7 @@ Docs links (`/overview/` and the rest) are served by MkDocs, so they 404 in the 
 ### Edit content
 
 - Personal story: `landing/src/content/story.ts`. Leave it empty to show the marked `[STORY]` placeholder.
-- Name, positioning, contact links, featured project: `landing/src/content/site.ts`. Contact links show their label (Email, GitHub, LinkedIn), not the address. The featured project links to the repo and to the profile README.
+- Name, positioning, contact links, featured project: `landing/src/content/site.ts`. Contact links show their label (GitHub, LinkedIn). No email address is published; the contact form posts to a Cloudflare Worker (`SITE.contactEndpoint`) that relays to Resend. The featured project links to the repo and to the profile README.
 - Blog posts: add `landing/posts/YYYY-MM-DD-slug.md` with front matter:
 
   ```markdown

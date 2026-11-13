@@ -6,12 +6,12 @@ export const SITE = {
   description:
     "Dhruv Setty, Identity Engineer in New Zealand. IGA and IAM control assurance across hybrid Entra ID and Active Directory.",
   contact: [
-    { label: "Email", text: "Email", href: "mailto:itsdhruvsetty@gmail.com" },
     { label: "GitHub", text: "GitHub", href: "https://github.com/whatheheckisthis" },
     { label: "LinkedIn", text: "LinkedIn", href: "https://www.linkedin.com/in/its-dhruv-setty" },
   ],
   location: "Auckland, New Zealand",
-  email: "itsdhruvsetty@gmail.com",
+  // Cloudflare Worker that relays the contact form to Resend. Empty disables sending.
+  contactEndpoint: "https://dhruv-contact.itsdhruvsetty.workers.dev/",
   photo: { src: "/dhruv.webp", alt: "Dhruv Setty", width: 400, height: 400 },
   // Dropbox shared link to the resume (opens Dropbox preview). Empty hides the link.
   resume: "https://www.dropbox.com/scl/fi/9sueshghjttlbs9xoei3j/Dhruv_Setty_Resume.pdf?rlkey=wvw71mzpaxlpa36zf4mhr5pu9&st=l9ptoclv&dl=0",
