@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import { FEATURED, FOCUS, PROJECTS, SITE } from "../content/site";
-import { STORY } from "../content/story";
+import { GREETING, STORY } from "../content/story";
 
 export default function Home() {
   const story = STORY.trim();
@@ -29,6 +29,7 @@ export default function Home() {
           <div className="about__grid">
             <img className="about__photo" src={SITE.photo.src} alt="Portrait of Dhruv Setty" width={SITE.photo.width} height={SITE.photo.height} loading="lazy" decoding="async" />
             <div className="about__story">
+              {GREETING ? <p className="about__greeting">{GREETING}</p> : null}
               {story ? story.split("\n\n").map((para) => <p key={para.slice(0, 24)}>{para}</p>) : null}
             </div>
           </div>
