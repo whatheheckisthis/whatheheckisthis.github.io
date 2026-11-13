@@ -564,3 +564,12 @@ html {
   input, textarea, [contenteditable] { cursor: text; }
 }
 .plane-trails { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
+
+/* "why" in the About story: the word that carries the arc. */
+.about__why {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.125em;
+  color: #D9480F;
+}

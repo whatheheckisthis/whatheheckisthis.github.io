@@ -37,7 +37,11 @@ export default function Home() {
             </figure>
             <div className="about__story">
               {GREETING ? <p className="about__greeting">{GREETING}</p> : null}
-              {story ? story.split("\n\n").map((para) => <p key={para.slice(0, 24)}>{para}</p>) : null}
+              {story ? story.split("\n\n").map((para) => (
+                <p key={para.slice(0, 24)}>
+                  {para.split(/(asking why)/).map((part, i) => (part === "asking why" ? <span key={i}>asking <em className="about__why">why</em></span> : part))}
+                </p>
+              )) : null}
             </div>
           </div>
         </section>
