@@ -43,7 +43,7 @@ export const FOCUS = [
 
 export const FEATURED = {
   summary: "v1.0.0. Entra ID collection (--live-entra) runs non-interactively and daemonless via the Microsoft Graph API, replacing ad hoc az ad or PowerShell queries with a repeatable run. It pages users, directory role assignments, Conditional Access policies and groups via @odata.nextLink, and that is the complete set. $select retrieves only the required attributes. Output is normalised to a common JSON schema for separation-of-duties, privileged-access and migration-drift assertions. Auth is iato.pem or Kubernetes workload identity, with tokens held in process memory only, never persisted. Enforce least privilege on the app registration: .default returns whatever consent has been granted.",
-  name: "IĀTŌ",
+  name: "Identity control evaluation for Entra ID",
   fullName: "Intent-to-Auditable-Trust-Object Index",
   repo: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-Index",
   readmeText: "Learn More",
