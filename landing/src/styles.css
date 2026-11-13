@@ -873,30 +873,43 @@ html {
   }
 }
 
-/* Click feedback: interactive buttons flash orange while pressed, then ease back. */
-:root { --press: #e8590c; }
+/* Hover and click feedback: interactive buttons turn orange on hover, a deeper orange while pressed, then ease back. */
+:root { --press: #e8590c; --press-deep: #c2410c; }
 .button,
 .contact-form button,
 .to-top {
-  transition: background-color 450ms ease, border-color 450ms ease, color 450ms ease;
+  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease;
 }
-.button:active,
-.contact-form button:active,
-.to-top:active {
+.button:hover,
+.contact-form button:hover:not([disabled]),
+.to-top:hover {
   background: var(--press);
   border-color: var(--press);
+  color: #fffaf5;
+}
+.button:active,
+.contact-form button:active:not([disabled]),
+.to-top:active {
+  background: var(--press-deep);
+  border-color: var(--press-deep);
   color: #fffaf5;
   transition-duration: 0s;
 }
 .text-link,
 .blog-side__rss,
 .post-nav__item {
-  transition: color 450ms ease, border-color 450ms ease;
+  transition: color 220ms ease, border-color 220ms ease;
+}
+.text-link:hover,
+.blog-side__rss:hover,
+.post-nav__item:hover {
+  color: var(--press);
+  border-color: var(--press);
 }
 .text-link:active,
 .blog-side__rss:active,
 .post-nav__item:active {
-  color: var(--press);
-  border-color: var(--press);
+  color: var(--press-deep);
+  border-color: var(--press-deep);
   transition-duration: 0s;
 }
