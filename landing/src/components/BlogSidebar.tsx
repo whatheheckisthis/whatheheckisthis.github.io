@@ -1,3 +1,4 @@
+import { SITE } from "../content/site";
 import { Link } from "react-router-dom";
 import { POSTS, formatShortDate } from "../content/posts";
 
@@ -25,13 +26,9 @@ export default function BlogSidebar({ current }: { current?: string }) {
             </li>
           ))}
         </ol>
-        <a className="blog-side__rss" href="/feed.xml">
-          <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13">
-            <circle cx="3" cy="13" r="2" fill="currentColor" />
-            <path d="M1 7a8 8 0 0 1 8 8M1 1.5A13.5 13.5 0 0 1 14.5 15" fill="none" stroke="currentColor" strokeWidth="2" />
-          </svg>
-          RSS feed
-        </a>
+        {SITE.coffee ? (
+          <a className="icon-link blog-side__coffee" href={SITE.coffee} aria-label="Buy me a coffee" title="Buy me a coffee"><img src="/icons/bmc.svg" alt="" width="22" height="22" /></a>
+        ) : null}
       </details>
     </aside>
   );

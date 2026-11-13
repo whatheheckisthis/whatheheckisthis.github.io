@@ -1302,3 +1302,5 @@ code.ic,
 .deck__now { color: var(--text); }
 .deck__hint { margin: .75rem 0 0; text-align: center; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); opacity: .7; }
 @media (prefers-reduced-motion: reduce) { .deck__card { transition: opacity 150ms linear; } }
+.site-footer__accent { color: var(--press); font-weight: var(--w-link); }
+.blog-side__coffee { margin-top: 1rem; }
