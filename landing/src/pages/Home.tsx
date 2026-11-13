@@ -79,9 +79,8 @@ export default function Home() {
           <div className="contact__grid">
             <div>
               <p className="contact__lede">Hiring for identity or access work, or want to compare notes? Send a message and I'll reply within two working days.</p>
-              <p className="contact__email"><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
               <ul className="inline-list">
-                {SITE.contact.filter((c) => c.label !== "Email").map((c) => (
+                {SITE.contact.map((c) => (
                   <li key={c.label}><a href={c.href}>{c.text}</a></li>
                 ))}
               </ul>
