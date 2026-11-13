@@ -872,3 +872,31 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
+/* Click feedback: interactive buttons flash orange while pressed, then ease back. */
+:root { --press: #e8590c; }
+.button,
+.contact-form button,
+.to-top {
+  transition: background-color 450ms ease, border-color 450ms ease, color 450ms ease;
+}
+.button:active,
+.contact-form button:active,
+.to-top:active {
+  background: var(--press);
+  border-color: var(--press);
+  color: #fffaf5;
+  transition-duration: 0s;
+}
+.text-link,
+.blog-side__rss,
+.post-nav__item {
+  transition: color 450ms ease, border-color 450ms ease;
+}
+.text-link:active,
+.blog-side__rss:active,
+.post-nav__item:active {
+  color: var(--press);
+  border-color: var(--press);
+  transition-duration: 0s;
+}
