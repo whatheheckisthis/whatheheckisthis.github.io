@@ -32,7 +32,7 @@ export default function Home() {
           <div className="about__grid">
             <figure className="portrait">
               <div className="portrait__frame">
-                <img className="portrait__img" src={SITE.photo.src} alt="Portrait of Dhruv Setty" width={SITE.photo.width} height={SITE.photo.height} loading="lazy" decoding="async" />
+                <img className="portrait__img" src={SITE.photo.src} srcSet={`${SITE.photo.src} 1x, /dhruv@2x.webp 2x`} alt="Portrait of Dhruv Setty" width={SITE.photo.width} height={SITE.photo.height} loading="lazy" decoding="async" />
               </div>
             </figure>
             <div className="about__story">
