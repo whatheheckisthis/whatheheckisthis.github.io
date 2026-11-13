@@ -459,8 +459,7 @@ html {
 .section { padding: clamp(3.5rem, 10vh, 6rem) 0; border-top: 1px solid var(--rule); }
 .section__title { margin: 0 0 2rem; font-size: var(--step--1); font-weight: var(--w-head); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .about__grid { display: grid; gap: 2rem; align-items: start; }
-@media (min-width: 760px) { .about__grid { grid-template-columns: 200px minmax(0, 1fr); gap: 3.5rem; } }
-.about__grid .about__photo { width: 200px; height: 200px; margin: 0; }
+@media (min-width: 760px) { .about__grid { grid-template-columns: 260px minmax(0, 1fr); gap: 4rem; } }
 .about__story p { margin: 0 0 1rem; max-width: 62ch; font-size: 1.125rem; line-height: 1.7; }
 .about__story p.about__greeting { margin: 0 0 0.75rem; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif; font-weight: 700; font-style: italic; font-size: clamp(2rem, 4.5vw, 2.75rem); line-height: 1.1; letter-spacing: -0.01em; }
 .about__story p:first-of-type:not(.about__greeting), .about__story p.about__greeting + p { font-size: clamp(1.25rem, 2vw, 1.4rem); line-height: 1.5; font-weight: 500; }
@@ -546,3 +545,41 @@ html {
   .about__story p.about__greeting { font-size: clamp(1.75rem, 8vw, 2.25rem); }
   .site-footer__inner { flex-direction: column; align-items: flex-start; padding-bottom: 4.5rem; }
 }
+
+/* About portrait: offset-shadow print card, slight tilt that straightens on hover, mono-to-colour. */
+.portrait { position: relative; margin: 0 0 0.5rem; width: min(72vw, 260px); }
+@media (min-width: 760px) { .portrait { position: sticky; top: calc(var(--nav-h) + 2rem); } }
+.portrait__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 2px solid var(--text);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 10px 10px 0 var(--text);
+  overflow: hidden;
+  transform: rotate(-2.5deg);
+  transition: transform 450ms cubic-bezier(.2,.7,.2,1), box-shadow 450ms cubic-bezier(.2,.7,.2,1);
+}
+.portrait__img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 25%;
+  filter: grayscale(1) contrast(1.05);
+  transform: scale(1.04);
+  transition: filter 450ms ease, transform 600ms cubic-bezier(.2,.7,.2,1);
+}
+.portrait:hover .portrait__frame { transform: rotate(0deg) translate(-3px, -3px); box-shadow: 14px 14px 0 var(--text); }
+.portrait:hover .portrait__img { filter: none; transform: scale(1); }
+.portrait__tag {
+  display: inline-block;
+  margin: 1.4rem 0 0 0.25rem;
+  padding: 0.3rem 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--text); color: var(--bg);
+  border-radius: 4px;
+  transform: rotate(1.5deg);
+}
+@media (prefers-reduced-motion: reduce) { .portrait__frame, .portrait__img { transition: none; } }
+@media (hover: none) { .portrait__img { filter: none; } }

@@ -30,7 +30,12 @@ export default function Home() {
         <section id="about" className="section about" aria-labelledby="about-h">
           <h2 id="about-h" className="section__title">About</h2>
           <div className="about__grid">
-            <img className="about__photo" src={SITE.photo.src} alt="Portrait of Dhruv Setty" width={SITE.photo.width} height={SITE.photo.height} loading="lazy" decoding="async" />
+            <figure className="portrait">
+              <div className="portrait__frame">
+                <img className="portrait__img" src={SITE.photo.src} alt="Portrait of Dhruv Setty" width={SITE.photo.width} height={SITE.photo.height} loading="lazy" decoding="async" />
+              </div>
+              <figcaption className="portrait__tag">Dhruv Setty <span aria-hidden="true">✦</span> Tāmaki Makaurau</figcaption>
+            </figure>
             <div className="about__story">
               {GREETING ? <p className="about__greeting">{GREETING}</p> : null}
               {story ? story.split("\n\n").map((para) => <p key={para.slice(0, 24)}>{para}</p>) : null}
