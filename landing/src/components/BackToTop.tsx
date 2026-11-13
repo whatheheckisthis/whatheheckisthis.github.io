@@ -15,7 +15,7 @@ export default function BackToTop() {
   return (
     <button
       type="button"
-      className={`to-top animate__animated ${show ? "animate__fadeInUp to-top--on" : "animate__fadeOutDown"}`}
+      className={`to-top${show ? " to-top--on" : ""}`}
       aria-label="Back to top"
       tabIndex={show ? 0 : -1}
       onClick={toTop}

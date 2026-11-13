@@ -498,24 +498,17 @@ html {
 .contact-form__status { min-height: 1.25rem; font-size: 0.9rem; margin-top: 0.5rem; }
 .contact-form button[disabled] { opacity: 0.6; cursor: progress; }
 
-/* Stylised hero name: solid black letters that wipe to white (outline kept) on hover. Entry via animate.css fadeInUp. */
+/* Hero name: solid black with outline; fills white on hover. Simple fade-in via animate.css. */
+.hero__name { --animate-duration: 500ms; }
 .hero__name > span { display: inline-block; }
 .hero__word {
-  color: transparent;
+  color: var(--text);
   -webkit-text-stroke: clamp(1.5px, 0.22vw, 2.5px) var(--text);
-  background-image: linear-gradient(90deg, var(--bg) 50%, var(--text) 50%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  transition: background-position 700ms cubic-bezier(.2,.7,.2,1);
+  transition: color 250ms ease;
 }
-.hero__last { animation-delay: 140ms; }
-.hero__name:hover .hero__word { background-position: 0 0; }
-.hero__name:hover .hero__last { transition-delay: 120ms; }
-@media (prefers-reduced-motion: reduce) { .hero__word { transition: none; } }
+.hero__name:hover .hero__word { color: var(--bg); }
 
-/* Back-to-top arrow (animate.css fade in/out). */
+/* Back-to-top arrow: simple fade. */
 .to-top {
   position: fixed;
   right: max(1rem, env(safe-area-inset-right));
@@ -527,12 +520,11 @@ html {
   border: 1px solid var(--text);
   background: var(--text); color: var(--bg);
   cursor: pointer;
-  --animate-duration: 300ms;
-  opacity: 0; pointer-events: none;
-  transition: transform 160ms ease;
+  opacity: 0; visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease, background-color 200ms ease, color 200ms ease;
 }
-.to-top--on { opacity: 1; pointer-events: auto; }
-.to-top:hover { transform: translateY(-2px); background: var(--bg); color: var(--text); }
+.to-top--on { opacity: 1; visibility: visible; }
+.to-top:hover { background: var(--bg); color: var(--text); }
 .to-top:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
 
 /* Responsive tweaks for small screens. */
@@ -546,7 +538,7 @@ html {
   .site-footer__inner { flex-direction: column; align-items: flex-start; padding-bottom: 4.5rem; }
 }
 
-/* About portrait: offset-shadow print card, slight tilt that straightens on hover. Full colour. */
+/* About portrait: offset-shadow print card with a slight tilt. Full colour. */
 .portrait { position: relative; margin: 0 0 0.5rem; width: min(72vw, 260px); }
 @media (min-width: 760px) { .portrait { position: sticky; top: calc(var(--nav-h) + 2rem); } }
 .portrait__frame {
@@ -558,14 +550,8 @@ html {
   box-shadow: 10px 10px 0 var(--text);
   overflow: hidden;
   transform: rotate(-2.5deg);
-  transition: transform 450ms cubic-bezier(.2,.7,.2,1), box-shadow 450ms cubic-bezier(.2,.7,.2,1);
 }
 .portrait__img {
   display: block; width: 100%; height: 100%;
   object-fit: cover; object-position: 50% 25%;
-  transform: scale(1.04);
-  transition: transform 600ms cubic-bezier(.2,.7,.2,1);
 }
-.portrait:hover .portrait__frame { transform: rotate(0deg) translate(-3px, -3px); box-shadow: 14px 14px 0 var(--text); }
-.portrait:hover .portrait__img { transform: scale(1); }
-@media (prefers-reduced-motion: reduce) { .portrait__frame, .portrait__img { transition: none; } }
