@@ -9,6 +9,14 @@ export interface PageMeta {
 }
 
 export function metaFor(path: string): PageMeta {
+  if (path === "/case-studies/") {
+    return {
+      title: `Case Studies | ${SITE.name}`,
+      description: "FPGA to GPU peer-to-peer pipeline: zero-copy P2P over PCIe, DMA bus mastering and SMMU address translation on Arm Neoverse.",
+      path,
+      type: "article",
+    };
+  }
   if (path === "/blog/") {
     return { title: `Blog | ${SITE.name}`, description: `Notes on identity, access and assurance by ${SITE.name}.`, path, type: "website" };
   }

@@ -7,7 +7,7 @@ import { metaFor, type PageMeta } from "./content/meta";
 import { SITE } from "./content/site";
 
 export function routes(): string[] {
-  return ["/", "/blog/", ...POSTS.map((p) => `/blog/${p.slug}/`)];
+  return ["/", "/case-studies/", "/blog/", ...POSTS.map((p) => `/blog/${p.slug}/`)];
 }
 
 export function feedItems() {
