@@ -9,7 +9,7 @@ export const SITE = {
     { label: "GitHub", text: "GitHub", href: "https://github.com/whatheheckisthis" },
     { label: "LinkedIn", text: "LinkedIn", href: "https://www.linkedin.com/in/its-dhruv-setty" },
   ],
-  location: "Auckland, New Zealand",
+  location: "",
   // Cloudflare Worker that relays the contact form to Resend. Empty disables sending.
   contactEndpoint: "https://dhruv-contact.itsdhruvsetty.workers.dev/",
   photo: { src: "/dhruv.webp", alt: "Dhruv Setty", width: 400, height: 400 },

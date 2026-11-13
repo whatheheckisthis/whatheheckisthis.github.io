@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       <main id="main" className="page fade-in">
         <section className="hero" aria-labelledby="hero-h">
-          <p className="eyebrow">{SITE.location}</p>
+          {SITE.location ? <p className="eyebrow">{SITE.location}</p> : null}
           <h1 id="hero-h" className="hero__name">{SITE.name}</h1>
           <p className="hero__positioning">{SITE.positioning}</p>
           <p className="hero__focus">{SITE.focus}</p>
