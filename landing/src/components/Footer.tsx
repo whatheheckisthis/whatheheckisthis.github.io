@@ -1,4 +1,5 @@
 import { SITE } from "../content/site";
+import BackToTop from "./BackToTop";
 
 export default function Footer() {
   return (
@@ -11,6 +12,7 @@ export default function Footer() {
           ))}
         </ul>
       </div>
+      <BackToTop />
     </footer>
   );
 }

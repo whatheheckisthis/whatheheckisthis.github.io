@@ -499,16 +499,50 @@ html {
 .contact-form__status { min-height: 1.25rem; font-size: 0.9rem; margin-top: 0.5rem; }
 .contact-form button[disabled] { opacity: 0.6; cursor: progress; }
 
-/* Stylised hero name: solid first name, outlined surname that fills on hover. Entry via animate.css fadeInUp. */
+/* Stylised hero name: solid black letters that wipe to white (outline kept) on hover. Entry via animate.css fadeInUp. */
 .hero__name > span { display: inline-block; }
-.hero__last {
+.hero__word {
   color: transparent;
-  -webkit-text-stroke: clamp(1.5px, 0.25vw, 2.5px) var(--text);
-  background: linear-gradient(var(--text), var(--text)) left / 0% 100% no-repeat;
+  -webkit-text-stroke: clamp(1.5px, 0.22vw, 2.5px) var(--text);
+  background-image: linear-gradient(90deg, var(--bg) 50%, var(--text) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
   -webkit-background-clip: text;
   background-clip: text;
-  transition: background-size 600ms cubic-bezier(.2,.7,.2,1);
-  animation-delay: 140ms;
+  transition: background-position 700ms cubic-bezier(.2,.7,.2,1);
 }
-.hero__name:hover .hero__last { background-size: 100% 100%; }
-@media (prefers-reduced-motion: reduce) { .hero__last { transition: none; } }
+.hero__last { animation-delay: 140ms; }
+.hero__name:hover .hero__word { background-position: 0 0; }
+.hero__name:hover .hero__last { transition-delay: 120ms; }
+@media (prefers-reduced-motion: reduce) { .hero__word { transition: none; } }
+
+/* Back-to-top arrow (animate.css fade in/out). */
+.to-top {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 15;
+  width: 2.75rem; height: 2.75rem;
+  display: grid; place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--text);
+  background: var(--text); color: var(--bg);
+  cursor: pointer;
+  --animate-duration: 300ms;
+  opacity: 0; pointer-events: none;
+  transition: transform 160ms ease;
+}
+.to-top--on { opacity: 1; pointer-events: auto; }
+.to-top:hover { transform: translateY(-2px); background: var(--bg); color: var(--text); }
+.to-top:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+
+/* Responsive tweaks for small screens. */
+@media (max-width: 520px) {
+  .site-header__inner { gap: 0.9rem; overflow-x: auto; scrollbar-width: none; }
+  .site-header__inner::-webkit-scrollbar { display: none; }
+  .site-header__inner a { white-space: nowrap; }
+  .hero__name { font-size: clamp(2.75rem, 15vw, 4.5rem); }
+  .actions .button { flex: 1 1 auto; text-align: center; }
+  .about__story p.about__greeting { font-size: clamp(1.75rem, 8vw, 2.25rem); }
+  .site-footer__inner { flex-direction: column; align-items: flex-start; padding-bottom: 4.5rem; }
+}
