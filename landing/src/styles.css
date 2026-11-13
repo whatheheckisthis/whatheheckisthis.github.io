@@ -1061,3 +1061,66 @@ code.ic,
 .carousel__dot { width: 0.55rem; height: 0.55rem; padding: 0; border: 0; border-radius: 999px; background: var(--rule); cursor: pointer; transition: background-color 160ms ease, width 160ms ease; }
 .carousel__dot.is-active { width: 1.4rem; background: var(--text); }
 @media (prefers-reduced-motion: reduce) { .carousel__track { scroll-behavior: auto; } }
+
+/* Focus section: subtle draw cards, equal size, justified copy */
+.cards--focus { align-items: stretch; }
+.focus-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  row-gap: 0.6rem;
+  padding: clamp(1.4rem, 2.4vw, 1.9rem);
+  background: linear-gradient(180deg, #ffffff 0%, #fafaf8 100%);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(17, 17, 17, 0.03), 0 8px 24px -18px rgba(17, 17, 17, 0.18);
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+.focus-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  height: 3px;
+  width: 2.5rem;
+  background: var(--press, #e8590c);
+  border-radius: 0 0 3px 0;
+  transition: width 260ms ease;
+}
+.focus-card:hover {
+  transform: translateY(-2px);
+  border-color: #d6d6d1;
+  box-shadow: 0 1px 0 rgba(17, 17, 17, 0.04), 0 14px 32px -20px rgba(17, 17, 17, 0.28);
+}
+.focus-card:hover::before { width: 100%; }
+.focus-card__index {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.focus-card .card__title { margin: 0; font-size: 1.2rem; line-height: 1.25; letter-spacing: -0.01em; }
+.card p.focus-card__lead { margin: 0; color: var(--text); font-size: 0.98rem; font-weight: 600; line-height: 1.45; }
+.card p.focus-card__body {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.62;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: manual;
+}
+.focus-card__refs {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.focus-card__refs code.ic { font-size: 0.74rem; white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  .focus-card, .focus-card::before { transition: none; }
+  .focus-card:hover { transform: none; }
+}

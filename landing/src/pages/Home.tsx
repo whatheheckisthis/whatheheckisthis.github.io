@@ -50,11 +50,16 @@ export default function Home() {
 
         <section id="focus" className="section" aria-labelledby="focus-h">
           <h2 id="focus-h" className="section__title">What I focus on</h2>
-          <ul className="cards">
-            {FOCUS.map((f) => (
-              <li key={f.title} className="card">
+          <ul className="cards cards--focus">
+            {FOCUS.map((f, i) => (
+              <li key={f.title} className="card focus-card">
+                <span className="focus-card__index" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="card__title">{f.title}</h3>
-                <p>{f.body}</p>
+                <p className="focus-card__lead">{f.lead}</p>
+                <p className="focus-card__body">{f.body}</p>
+                <ul className="focus-card__refs" aria-label="Control references">
+                  {f.refs.map((r) => <li key={r}><code className="ic">{r}</code></li>)}
+                </ul>
               </li>
             ))}
           </ul>

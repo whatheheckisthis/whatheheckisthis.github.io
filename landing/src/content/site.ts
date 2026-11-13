@@ -29,15 +29,21 @@ export const SITE = {
 export const FOCUS = [
   {
     title: "Identity governance",
-    body: "Joiner, mover and leaver processes, access reviews and role design that keep access matched to the job, not the history.",
+    lead: "Access that follows the role, not the history.",
+    body: "Joiner, mover and leaver workflows, periodic access certification and role-based access design, so entitlements are granted, adjusted and revoked as people change roles instead of accumulating over time.",
+    refs: ["ISO 27001 A.5.16", "A.5.18"],
   },
   {
     title: "Access control assurance",
-    body: "Controls tested against evidence, not assumptions, with findings an auditor can trace back to the source.",
+    lead: "Evidence first, conclusions second.",
+    body: "Controls are tested against system evidence rather than assumption. Each finding is traced to its source, mapped to the requirement it tests and documented so an auditor can sample it and reach the same result.",
+    refs: ["ISO 27001 A.5.15", "A.5.35"],
   },
   {
     title: "Hybrid identity",
-    body: "Entra ID and Active Directory governed as one hybrid directory, with every account and privileged role mapped in a controls crosswalk and tracked in the risk register.",
+    lead: "One directory model across cloud and on-premises.",
+    body: "Entra ID and on-premises Active Directory governed as one hybrid directory, with every account and privileged role mapped in a controls crosswalk and every exception tracked in the risk register.",
+    refs: ["ISO 27001 A.5.16", "A.8.2"],
   },
 ] as const;
 
