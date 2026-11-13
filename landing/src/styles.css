@@ -1028,8 +1028,9 @@ code.ic,
   line-height: 1.55;
   text-align: justify;
   text-justify: inter-word;
-  hyphens: auto;
-  -webkit-hyphens: auto;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  word-spacing: -0.02em;
 }
 .carousel .slide .actions { display: flex; gap: 1.25rem; flex-wrap: wrap; padding-top: 0.75rem; border-top: 1px solid var(--rule); }
 
