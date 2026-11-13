@@ -4,6 +4,8 @@ export interface Post {
   date: string; // YYYY-MM-DD
   summary: string;
   html: string;
+  minutes: number; // estimated reading time
+  medium?: string; // optional Medium URL (front matter `medium:`)
 }
 
 interface Compiled {
@@ -16,11 +18,13 @@ const files = import.meta.glob<Compiled>("../../posts/*.md", { import: "default"
 
 function toPost(path: string, { data, html }: Compiled): Post {
   const slug = (path.split("/").pop() ?? "").replace(/\.md$/, "").replace(/^\d{4}-\d{2}-\d{2}-/, "");
-  const { title, date, summary } = data;
+  const { title, date, summary, medium } = data;
   if (!title || !date || !summary || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
     throw new Error(`${path}: front matter needs title, date (YYYY-MM-DD) and summary`);
   }
-  return { slug, title, date, summary, html };
+  const words = html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(words / 230));
+  return { slug, title, date, summary, html, minutes, medium: medium || undefined };
 }
 
 export const POSTS: Post[] = Object.entries(files)
@@ -36,6 +40,16 @@ export function formatDate(iso: string): string {
   return new Date(Date.UTC(y ?? 1970, (m ?? 1) - 1, d ?? 1)).toLocaleDateString("en-NZ", {
     day: "numeric",
     month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+export function formatShortDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(Date.UTC(y ?? 1970, (m ?? 1) - 1, d ?? 1)).toLocaleDateString("en-NZ", {
+    day: "numeric",
+    month: "short",
     year: "numeric",
     timeZone: "UTC",
   });

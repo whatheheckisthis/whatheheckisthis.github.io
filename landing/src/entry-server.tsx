@@ -10,6 +10,10 @@ export function routes(): string[] {
   return ["/", "/blog/", ...POSTS.map((p) => `/blog/${p.slug}/`)];
 }
 
+export function feedItems() {
+  return POSTS.map(({ slug, title, date, summary, html }) => ({ slug, title, date, summary, html }));
+}
+
 export function render(url: string): { html: string; meta: PageMeta; siteUrl: string } {
   const html = renderToString(
     <StrictMode>
