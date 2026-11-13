@@ -47,7 +47,7 @@ export default function Home() {
         </section>
 
         <section id="work" className="section" aria-labelledby="work-h">
-          <h2 id="work-h" className="section__title">Selected work</h2>
+          <h2 id="work-h" className="section__title">Recent Projects</h2>
           <article className="card card--feature">
             <h3 className="card__title card__title--lg">
               {FEATURED.name}
