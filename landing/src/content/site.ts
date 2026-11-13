@@ -66,7 +66,7 @@ export const PROJECTS = [
       "Part of my Correctness Framework for Heterogeneous Accelerator Architectures. Formally analysed `Stage 2` address translation and memory state transformations to ensure data integrity, race concurrency, and ownership preservation under virtualised hardware semantics. Applied observational equivalence and congruence proofs to `VLA` execution models, proving that asynchronous accelerator offloading preserves observable program behavior.",
     links: [
       { text: "Learn More", href: "https://www.dropbox.com/scl/fi/nfrnwf5lten7b74ud1fbn/A64-CBLT-STUDY-001-eca7fe16806a.pdf?rlkey=rl6pegel190x12yx8mhkpbn7s&st=kjv0iqll&dl=0" },
-      { text: "View the Lean proofs", href: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-v7" },
+      { text: "View More", href: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-v7" },
     ],
   },
   {

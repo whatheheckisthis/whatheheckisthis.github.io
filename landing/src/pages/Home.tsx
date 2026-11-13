@@ -73,9 +73,9 @@ export default function Home() {
               <p className="card__tag">Assurance</p>
               <h3 className="card__title">{FEATURED.name}</h3>
               <p>{rich(FEATURED.summary)}</p>
-              <div className="actions">
+              <div className="actions card__links">
                 <a className="text-link" href={FEATURED.readme}>{FEATURED.readmeText}</a>
-                <a className="text-link" href={FEATURED.repo}>View the code</a>
+                <a className="text-link" href={FEATURED.repo}>View More</a>
               </div>
             </li>
             {PROJECTS.map((p) => (
@@ -83,7 +83,7 @@ export default function Home() {
                 <p className="card__tag">{p.tag}</p>
                 <h3 className="card__title">{p.name}</h3>
                 <p>{rich(p.summary)}</p>
-                <div className="actions">
+                <div className="actions card__links">
                   {p.links.filter((l) => l.href && !l.href.startsWith("__")).map((l) => (
                     <a key={l.text} className="text-link" href={l.href}>{l.text}</a>
                   ))}
