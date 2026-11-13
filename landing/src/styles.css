@@ -1153,8 +1153,8 @@ code.ic,
   overflow: hidden;
   display: grid;
   grid-template-rows: auto auto auto 1fr auto;
-  row-gap: 2.2cqi;
-  padding: 5.5cqi 6cqi;
+  row-gap: 1.6cqi;
+  padding: 4.5cqi 6cqi;
   border: 1px solid var(--rule);
   border-radius: 12px;
   background: linear-gradient(180deg, #ffffff 0%, #fafaf8 100%);
@@ -1164,21 +1164,21 @@ code.ic,
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 .cs-index__link:hover { transform: translateY(-2px); border-color: #d6d6d1; box-shadow: 0 14px 32px -20px rgba(17, 17, 17, 0.28); }
-.cs-index__link img { display: block; width: 100%; height: auto; aspect-ratio: 1600 / 460; object-fit: contain; }
-.cs-index__num { font-family: var(--mono); font-size: max(0.68rem, 2.4cqi); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.cs-index__link img { display: block; width: 80%; height: auto; margin: 0 auto 0.8cqi; aspect-ratio: 1600 / 460; object-fit: contain; }
+.cs-index__num { font-family: var(--mono); font-size: 2.4cqi; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .cs-index__title { font-size: 4.6cqi; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; text-wrap: balance; hyphens: manual; -webkit-hyphens: manual; }
 .cs-index__summary {
   align-self: start;
   color: var(--muted);
-  font-size: 3.3cqi;
-  line-height: 1.55;
+  font-size: 3.1cqi;
+  line-height: 1.5;
   text-align: justify;
   text-justify: inter-word;
   hyphens: manual;
   -webkit-hyphens: manual;
   word-spacing: -0.02em;
 }
-.cs-index__more { padding-top: 2.4cqi; border-top: 1px solid var(--rule); font-size: max(0.8rem, 3.2cqi); font-weight: 600; color: var(--press, #e8590c); }
+.cs-index__more { padding-top: 1.8cqi; border-top: 1px solid var(--rule); font-size: 3.1cqi; line-height: 1.4; font-weight: 600; color: var(--press, #e8590c); }
 .cs-kicker a { color: inherit; }
 .cs-refs { padding-left: 1.1rem; }
 .cs-refs li { margin: 0.35rem 0; }
