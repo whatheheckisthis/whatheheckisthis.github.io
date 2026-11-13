@@ -57,7 +57,7 @@ export const PROJECTS = [
     name: "AArch64 virtualisation study",
     tag: "Virtualisation",
     summary:
-      "A specification review and Lean 4 formalisation of an EL2 hypervisor model for Arm Neoverse servers (Azure Cobalt): Stage-2 memory isolation, EL2 configuration and the KVM vCPU lifecycle. Each finding is classed as a correction, a precision defect or a verification gap.",
+      "Part of my Correctness Framework for Heterogeneous Accelerator Architectures. Formally analysed Stage 2 address translation and memory state transformations to ensure data integrity, race concurrency, and ownership preservation under virtualised hardware semantics. Applied observational equivalence and congruence proofs to Variable-Length Array (VLA) execution models, proving that asynchronous accelerator offloading preserves observable program behavior.",
     links: [
       { text: "Learn More", href: "https://www.dropbox.com/scl/fi/nfrnwf5lten7b74ud1fbn/A64-CBLT-STUDY-001-eca7fe16806a.pdf?rlkey=rl6pegel190x12yx8mhkpbn7s&st=kjv0iqll&dl=0" },
       { text: "View the Lean proofs", href: "https://github.com/whatheheckisthis/Intent-to-Auditable-Trust-Object-v7" },
@@ -67,7 +67,7 @@ export const PROJECTS = [
     name: "FPGA to GPU peer-to-peer pipeline",
     tag: "HPC",
     summary:
-      "A technical specification and verification model for a low-latency FPGA-to-GPU data path on virtualised Arm Neoverse hosts, using PCIe peer-to-peer DMA, QEMU/KVM/VFIO device isolation and AF_XDP control. April 2024 to January 2025.",
+      "Part of my Correctness Framework for Heterogeneous Accelerator Architectures. Designed and evaluated low-latency FPGA GPU PCIe P2P memory access paths, optimising DMA, IOMMU/SMMU address translation, and cache coherence across heterogeneous interconnects.",
     links: [{ text: "Learn More", href: "https://www.dropbox.com/scl/fi/lrntb1t05v04yb1wz4ei8/CBLT-2-1cf710990566.pdf?rlkey=rp2c40yxcu7wo0m9yqnl13ckc&st=1x4jym61&dl=0" }],
   },
 ] as const;
