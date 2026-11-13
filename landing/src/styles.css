@@ -585,31 +585,3 @@ html {
 }
 .card--feature > .card__tag { margin-bottom: 0.6rem; }
 
-/* Compass in the background: a throwaway nod to the journey. Needle swings with scroll. */
-.compass {
-  position: fixed;
-  right: clamp(-9rem, -8vw, -3rem);
-  bottom: clamp(-9rem, -8vw, -3rem);
-  width: clamp(18rem, 38vw, 32rem);
-  aspect-ratio: 1;
-  z-index: -1;
-  pointer-events: none;
-  color: var(--text);
-  opacity: 0.08;
-}
-.compass__needle { transform-origin: 0 0; transform: rotate(-24deg); }
-.compass__rose { transform-origin: 0 0; }
-@supports (animation-timeline: scroll()) {
-  .compass__needle { animation: compass-swing linear both; animation-timeline: scroll(root); }
-  .compass__rose { animation: compass-drift linear both; animation-timeline: scroll(root); }
-}
-@keyframes compass-swing {
-  0% { transform: rotate(-24deg); }
-  35% { transform: rotate(38deg); }
-  60% { transform: rotate(-8deg); }
-  85% { transform: rotate(14deg); }
-  100% { transform: rotate(0deg); }
-}
-@keyframes compass-drift { from { transform: rotate(0deg); } to { transform: rotate(22.5deg); } }
-@media (max-width: 520px) { .compass { opacity: 0.06; } }
-@media (prefers-reduced-motion: reduce) { .compass__needle, .compass__rose { animation: none !important; } }

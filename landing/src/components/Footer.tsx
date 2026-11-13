@@ -1,7 +1,6 @@
 import { SITE } from "../content/site";
 import BackToTop from "./BackToTop";
 import PlaneTrails from "./PlaneTrails";
-import Compass from "./Compass";
 
 export default function Footer() {
   return (
@@ -16,7 +15,6 @@ export default function Footer() {
       </div>
       <BackToTop />
       <PlaneTrails />
-      <Compass />
     </footer>
   );
 }
