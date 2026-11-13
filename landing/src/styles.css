@@ -1124,3 +1124,21 @@ code.ic,
   .focus-card, .focus-card::before { transition: none; }
   .focus-card:hover { transform: none; }
 }
+
+/* Greeting: bunny hop, letter by letter. Black text, name in orange. */
+.hop { cursor: default; }
+.hop__inner { display: inline; }
+.hop__ch { display: inline-block; transform-origin: 50% 100%; will-change: transform; }
+.hop__ch--ink { color: var(--text); }
+.hop__ch--name { color: var(--press, #e8590c); }
+.hop--go .hop__ch { animation: bunny-hop 720ms cubic-bezier(0.3, 0.7, 0.4, 1) both; }
+@keyframes bunny-hop {
+  0%   { transform: translateY(0) scale(1, 1); }
+  12%  { transform: translateY(0) scale(1.12, 0.84); }   /* crouch */
+  38%  { transform: translateY(-0.42em) scale(0.92, 1.1); } /* leap */
+  55%  { transform: translateY(-0.5em) scale(1, 1); }    /* top */
+  76%  { transform: translateY(0) scale(1.14, 0.82); }    /* land, squash */
+  88%  { transform: translateY(-0.06em) scale(0.97, 1.04); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+@media (prefers-reduced-motion: reduce) { .hop--go .hop__ch { animation: none; } }

@@ -5,6 +5,7 @@ import { FEATURED, FOCUS, PROJECTS, SITE } from "../content/site";
 import { GREETING, STORY } from "../content/story";
 import { rich } from "../lib/rich";
 import Carousel from "../components/Carousel";
+import HopGreeting from "../components/HopGreeting";
 
 export default function Home() {
   const story = STORY.trim();
@@ -38,7 +39,7 @@ export default function Home() {
               </div>
             </figure>
             <div className="about__story">
-              {GREETING ? <p className="about__greeting">{GREETING}</p> : null}
+              {GREETING ? <HopGreeting text={GREETING} /> : null}
               {story ? story.split("\n\n").map((para) => (
                 <p key={para.slice(0, 24)}>
                   {para.split(/(asking why)/).map((part, i) => (part === "asking why" ? <span key={i}>asking <em className="about__why">why</em></span> : part))}
