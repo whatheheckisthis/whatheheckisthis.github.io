@@ -984,7 +984,8 @@ code.ic,
   box-decoration-break: clone;
 }
 
-/* Projects carousel: 4:3 slides, two per view on desktop */
+/* Projects carousel: identical cards. Same width, same height, justified text.
+   600px and up: every card is a fixed 4:3 box and type scales with the card (cqi), so text always fits. */
 .carousel { margin-top: 1.25rem; }
 .carousel__track {
   list-style: none;
@@ -992,7 +993,7 @@ code.ic,
   padding: 0.25rem 0.1rem 0.75rem;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(92%, 34rem);
+  grid-auto-columns: 92%;
   gap: 1.25rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -1001,18 +1002,19 @@ code.ic,
   scrollbar-width: none;
 }
 .carousel__track::-webkit-scrollbar { display: none; }
-@media (min-width: 760px) { .carousel__track { grid-auto-columns: calc((100% - 1.25rem) / 2); } }
 .carousel .slide {
   scroll-snap-align: start;
-  aspect-ratio: 4 / 3;
+  container-type: inline-size;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   row-gap: 0.65rem;
-  padding: clamp(1.25rem, 2.6vw, 2rem);
+  padding: 1.25rem;
+  overflow: hidden;
 }
+.carousel .slide .card__tag { margin: 0; }
 .carousel .slide .card__title {
   margin: 0;
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-size: 1.15rem;
   line-height: 1.25;
   letter-spacing: -0.01em;
   min-height: 2.5em;
@@ -1022,12 +1024,27 @@ code.ic,
   align-self: start;
   margin: 0;
   color: var(--text);
-  font-size: clamp(0.9rem, 1.1vw, 0.98rem);
-  line-height: 1.62;
-  text-wrap: pretty;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  text-align: justify;
+  text-justify: inter-word;
   hyphens: auto;
+  -webkit-hyphens: auto;
 }
 .carousel .slide .actions { display: flex; gap: 1.25rem; flex-wrap: wrap; padding-top: 0.75rem; border-top: 1px solid var(--rule); }
+
+@media (min-width: 600px) {
+  .carousel__track { grid-auto-columns: min(100%, 40rem); }
+  .carousel .slide { aspect-ratio: 4 / 3; height: auto; min-height: 0; padding: 5.5% 6%; row-gap: 0; }
+  .carousel .slide > * + * { margin-top: 1.6cqi; }
+  .carousel .slide .card__tag { font-size: max(0.7rem, 1.9cqi); }
+  .carousel .slide .card__title { font-size: 3.6cqi; }
+  .carousel .slide > p:not(.card__tag) { font-size: 2.2cqi; line-height: 1.55; }
+  .carousel .slide .actions { font-size: max(0.8rem, 2.4cqi); padding-top: 2cqi; }
+}
+@media (min-width: 1100px) {
+  .carousel__track { grid-auto-columns: calc((100% - 1.25rem) / 2); }
+}
 .carousel__controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.75rem; }
 .carousel__btn {
   width: 2.25rem; height: 2.25rem;
