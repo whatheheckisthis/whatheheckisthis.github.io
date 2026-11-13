@@ -61,6 +61,7 @@ export default function Home() {
         <section id="work" className="section" aria-labelledby="work-h">
           <h2 id="work-h" className="section__title">Recent Projects</h2>
           <article className="card card--feature">
+            <p className="card__tag">Assurance</p>
             <h3 className="card__title card__title--lg">
               {FEATURED.name}
             </h3>
