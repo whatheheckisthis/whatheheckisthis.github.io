@@ -5,7 +5,7 @@ tools: ["read", "search", "github/*", "agent-q/*"]
 mcp-servers:
   agent-q:
     type: http
-    url: "https://tcaefdirgffncwfwrlbe.supabase.co/functions/v1/agent-q/mcp"
+    url: "https://agent-q.itsdhruvsetty.workers.dev/mcp"
     headers:
       Authorization: "Bearer ${{ secrets.COPILOT_MCP_AGENT_Q_TOKEN }}"
     tools: ["*"]

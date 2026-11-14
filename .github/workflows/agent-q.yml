@@ -19,7 +19,7 @@ jobs:
       - name: Call Agent Q
         id: q
         env:
-          AGENT_Q_URL: https://tcaefdirgffncwfwrlbe.supabase.co/functions/v1/agent-q/mcp
+          AGENT_Q_URL: https://agent-q.itsdhruvsetty.workers.dev/mcp
           AGENT_Q_TOKEN: ${{ secrets.AGENT_Q_TOKEN }}
           GH_TOKEN: ${{ github.token }}
         run: |
