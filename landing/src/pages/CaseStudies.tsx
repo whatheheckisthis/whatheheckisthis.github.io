@@ -9,14 +9,17 @@ export default function CaseStudies() {
       <Header />
       <div className="cs-shell fade-in" id="main">
         <main className="prose-article cs-main">
-          <header className="post-header">
+          <header className="cs-head">
             <p className="cs-kicker">Case studies</p>
-            <h1>Correctness Framework for Heterogeneous Accelerator Architectures</h1>
-            <p className="post-dek">
-              Four studies from one framework: define what must be observably true first, then design and measure
-              against it.
-            </p>
+            <h1 className="cs-head__title">Correctness Framework for Heterogeneous Accelerator Architectures</h1>
           </header>
+          <aside className="cs-lede" aria-label="Approach">
+            <span className="cs-lede__label">Approach</span>
+            <p className="cs-lede__text">
+              Four studies from one framework. Each defines what must be observably true first, then designs and
+              measures against it.
+            </p>
+          </aside>
           <ul className="cs-index">
             {CASE_STUDIES.map((c, i) => (
               <li key={c.slug} className="cs-index__item">

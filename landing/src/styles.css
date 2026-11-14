@@ -1325,3 +1325,29 @@ code.ic,
 .sa-form { display: flex; gap: 0.4rem; padding: 0.6rem 0.85rem; border-top: 1px solid var(--rule); }
 .sa-form input { flex: 1; min-width: 0; font: inherit; padding: 0.4rem 0.6rem; border: 1px solid var(--rule); border-radius: 8px; }
 .sa-form button { font: inherit; font-weight: 600; border: 0; border-radius: 8px; padding: 0.4rem 0.8rem; background: #111; color: #fff; cursor: pointer; }
+
+/* Case study index header and approach card */
+.cs-head { margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
+.cs-head .cs-kicker { font-family: var(--mono); font-weight: 600; color: var(--press, #e8590c); }
+.prose-article .cs-head__title {
+  margin: 0;
+  max-width: 24ch;
+  font-size: clamp(1.75rem, 3.6vw, 2.35rem);
+  font-weight: var(--w-head);
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+.cs-lede {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  padding: 1.1rem 1.35rem;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--press, #e8590c);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 1px 0 rgba(17, 17, 17, 0.03), 0 8px 24px -18px rgba(17, 17, 17, 0.18);
+}
+.cs-lede__label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.prose-article .cs-lede__text { margin: 0; font-size: 1.05rem; line-height: 1.55; color: var(--text); }
