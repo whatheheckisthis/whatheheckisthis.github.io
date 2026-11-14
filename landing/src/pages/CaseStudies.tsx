@@ -25,7 +25,7 @@ export default function CaseStudies() {
                   <span className="cs-index__num">{String(i + 1).padStart(2, "0")} · {c.tag}</span>
                   <span className="cs-index__title">{c.title}</span>
                   <span className="cs-index__summary">{c.summary}</span>
-                  <span className="cs-index__more">Read the case study</span>
+                  <span className="cs-index__more">Learn More</span>
                 </Link>
               </li>
             ))}

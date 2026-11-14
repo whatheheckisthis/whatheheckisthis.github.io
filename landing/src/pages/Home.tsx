@@ -75,7 +75,6 @@ export default function Home() {
               <p>{rich(FEATURED.summary)}</p>
               <div className="actions card__links">
                 <a className="text-link" href={FEATURED.readme}>{FEATURED.readmeText}</a>
-                <a className="text-link" href={FEATURED.repo}>View More</a>
               </div>
             </article>
             {PROJECTS.map((p) => (
