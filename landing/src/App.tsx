@@ -8,9 +8,11 @@ import CaseStudyArmv9 from "./pages/CaseStudyArmv9";
 import CaseStudyHmm from "./pages/CaseStudyHmm";
 import CaseStudySpde from "./pages/CaseStudySpde";
 import NotFound from "./pages/NotFound";
+import SiteAvatar from "./components/SiteAvatar";
 
 export default function App() {
   return (
+    <>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/case-studies/" element={<CaseStudies />} />
@@ -22,5 +24,7 @@ export default function App() {
       <Route path="/blog/:slug/" element={<PostPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    <SiteAvatar />
+    </>
   );
 }

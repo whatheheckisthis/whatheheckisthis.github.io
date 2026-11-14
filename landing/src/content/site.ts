@@ -15,6 +15,9 @@ export const SITE = {
   photo: { src: "/dhruv.webp", alt: "Dhruv Setty", width: 400, height: 400 },
   // Dropbox shared link to the resume (opens Dropbox preview). Empty hides the link.
   resume: "https://www.dropbox.com/scl/fi/9sueshghjttlbs9xoei3j/Dhruv_Setty_Resume.pdf?rlkey=wvw71mzpaxlpa36zf4mhr5pu9&st=l9ptoclv&dl=0",
+  // Supabase Realtime for the avatar stack. Publishable key only; empty hides other readers.
+  supabaseUrl: "https://gsluekbphbusnaguqeol.supabase.co",
+  supabaseKey: "sb_publishable_LfQ_ECqRy0NFRcYTvarw5A_lrAdimGS",
   // Buy Me a Coffee or Ko-fi page. Empty hides the button.
   coffee: "https://buymeacoffee.com/dhruvsetty",
   // Existing MkDocs pages, served from the same site. Plain links, not router links.
