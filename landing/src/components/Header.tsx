@@ -16,7 +16,7 @@ export default function Header() {
         <a href="/#about" aria-current={current("#about")}>About</a>
         {SITE.resume ? <a href={SITE.resume}>Resume</a> : null}
         <Link to="/case-studies/" aria-current={pathname.startsWith("/case-studies/") ? "page" : undefined}>Case Studies</Link>
-        <Link to="/blog/" aria-current={pathname.startsWith("/blog/") ? "page" : undefined}>Blog</Link>
+        <Link to="/blog/" aria-current={pathname.startsWith("/blog/") ? "page" : undefined}>Journal</Link>
         <a href="/#contact" aria-current={current("#contact")}>Contact</a>
       </nav>
     </header>

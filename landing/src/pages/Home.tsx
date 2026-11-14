@@ -23,7 +23,7 @@ export default function Home() {
           <p className="hero__focus">{SITE.focus}</p>
           <div className="actions">
             <a className="button" href="#contact">Get in touch</a>
-            <a className="button button--ghost" href="#work">See my work</a>
+            <a className="button button--ghost" href="#work">Recent Projects</a>
             {SITE.resume ? (
               <a className="button button--ghost" href={SITE.resume} target="_blank" rel="noopener">View resume</a>
             ) : null}

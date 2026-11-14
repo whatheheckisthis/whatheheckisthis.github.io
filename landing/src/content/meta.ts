@@ -25,7 +25,7 @@ export function metaFor(path: string): PageMeta {
     return { title: `Weak Memory, SVE2 and Lossless Lane Reduction on Armv9.0-A | ${SITE.name}`, description: "Modelling concurrency on Neoverse N2 and Cortex-X3: single-copy atomicity boundaries, SVE2 vector length and lossless parametric lane reduction.", path, type: "article" };
   }
   if (path === "/blog/") {
-    return { title: `Blog | ${SITE.name}`, description: `Notes on identity, access and assurance by ${SITE.name}.`, path, type: "website" };
+    return { title: `Journal | ${SITE.name}`, description: `Notes on identity, access and assurance by ${SITE.name}.`, path, type: "website" };
   }
   const m = /^\/blog\/([^/]+)\/$/.exec(path);
   const post = m?.[1] ? findPost(m[1]) : undefined;
