@@ -144,6 +144,8 @@ export default function CaseStudyArmv9() {
             </ul>
             <p>
               <Link to="/case-studies/fpga-gpu-p2p/">Previous case study: FPGA to GPU peer-to-peer pipeline</Link>
+              <br />
+              <Link to="/case-studies/hmm-gaussian-fields/">Next case study: Hidden Markov models with Gaussian fields</Link>
             </p>
           </section>
         </main>

@@ -19,4 +19,24 @@ export const CASE_STUDIES = [
     coverW: 1600,
     coverH: 460,
   },
+  {
+    slug: "hmm-gaussian-fields",
+    tag: "Probabilistic models",
+    title: "Hidden Markov Models with Gaussian Fields for Behavioural Time Series",
+    summary:
+      "Discrete behavioural regimes for the jumps, a sparse SPDE Gaussian field for the drift, joined so inference stays real time.",
+    cover: "/case-studies/cover-hmm.png",
+    coverW: 1600,
+    coverH: 460,
+  },
+  {
+    slug: "spde-gmrf-gpu-edge",
+    tag: "GPU and edge",
+    title: "Lifting SPDE‑GMRF Fields: GPU Estimation and On‑Device Forward Filtering",
+    summary:
+      "Sparse precision factorised on the GPU with cuSPARSE and cuSOLVER, and an int8 forward filter on Arm Cortex‑M via CMSIS‑NN.",
+    cover: "/case-studies/cover-spde.png",
+    coverW: 1600,
+    coverH: 460,
+  },
 ] as const;

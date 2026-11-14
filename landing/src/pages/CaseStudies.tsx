@@ -13,7 +13,7 @@ export default function CaseStudies() {
             <p className="cs-kicker">Case studies</p>
             <h1>Correctness Framework for Heterogeneous Accelerator Architectures</h1>
             <p className="post-dek">
-              Two studies from one framework: define what must be observably true first, then design and measure
+              Four studies from one framework: define what must be observably true first, then design and measure
               against it.
             </p>
           </header>

@@ -7,7 +7,7 @@ import { metaFor, type PageMeta } from "./content/meta";
 import { SITE } from "./content/site";
 
 export function routes(): string[] {
-  return ["/", "/case-studies/", "/case-studies/fpga-gpu-p2p/", "/case-studies/armv9-weak-memory-sve2/", "/blog/", ...POSTS.map((p) => `/blog/${p.slug}/`)];
+  return ["/", "/case-studies/", "/case-studies/fpga-gpu-p2p/", "/case-studies/armv9-weak-memory-sve2/", "/case-studies/hmm-gaussian-fields/", "/case-studies/spde-gmrf-gpu-edge/", "/blog/", ...POSTS.map((p) => `/blog/${p.slug}/`)];
 }
 
 export function feedItems() {
