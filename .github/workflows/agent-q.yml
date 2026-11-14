@@ -19,13 +19,14 @@ jobs:
       - name: Call Agent Q
         id: q
         env:
-          AGENT_Q_URL: https://agent-q.itsdhruvsetty.workers.dev/mcp
+          AGENT_Q_URL: https://tcaefdirgffncwfwrlbe.supabase.co/functions/v1/agent-q/mcp
+          AGENT_Q_API_KEY: sb_publishable_KpeKmqmnbI9lTj_eu98nzA_tGUOMtBC
           AGENT_Q_TOKEN: ${{ secrets.AGENT_Q_TOKEN }}
           GH_TOKEN: ${{ github.token }}
         run: |
           body=$(jq -nc --arg o "${{ github.repository_owner }}" --arg r "${{ github.event.repository.name }}" --argjson n ${{ github.event.pull_request.number }} \
             '{jsonrpc:"2.0",id:1,method:"tools/call",params:{name:"review_pull_request",arguments:{owner:$o,repo:$r,number:$n}}}')
-          auth=(-H "x-github-token: $GH_TOKEN"); [ -n "$AGENT_Q_TOKEN" ] && auth+=(-H "Authorization: Bearer $AGENT_Q_TOKEN")
+          auth=(-H "x-github-token: $GH_TOKEN" -H "apikey: $AGENT_Q_API_KEY"); [ -n "$AGENT_Q_TOKEN" ] && auth+=(-H "Authorization: Bearer $AGENT_Q_TOKEN")
           curl -fsS "$AGENT_Q_URL" -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' "${auth[@]}" -d "$body" > resp.json
           jq -r '.result.content[0].text' resp.json > review.md
           { echo '<!-- agent-q -->'; cat review.md; } > comment.md
